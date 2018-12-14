@@ -66,13 +66,22 @@ section.sect_1{
 }
 .content {
     margin-top: 80px;
+    float: right;
+
+
+
 
 }
 .content p{
-    width: 900px;
-    margin: 30px auto;
+    width: 450px;
+    height: 200px;
+    margin: 30px 10px;
     text-align: justify;
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 10px;
+    line-height: 20px;
+    border-radius: 5px;
+    border: 2px solid white;
+    display: flex;
+    background-color: white;
 
 }
