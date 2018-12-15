@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     IndexComponent,
     FooterComponent,
+    LoginComponent,
     
   ],
   imports: [
