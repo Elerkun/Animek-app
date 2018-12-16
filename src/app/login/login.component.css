@@ -1,4 +1,9 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+::ng-deep body{
+  background:url(src/assets/bg-login-5cent0.jpg);
+  background-size: cover;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -69,8 +74,7 @@ nav ul li a.active{
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(127, 143, 173);
-    background: white;
-    /*rgb(0, 0, 0,.8);*/
+    background: rgb(0, 0, 0,.8);
     border-radius: 5px;
 
 }
