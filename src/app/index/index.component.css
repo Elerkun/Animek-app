@@ -1,4 +1,18 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+::ng-deep  .bdy{
+  background:  #080e12;
 
+}
+::ng-deep .footer{
+  position: relative;
+  width: 100%;
+  height: 80px;
+  bottom: 0;
+  color: #7a858f;
+  background-color: #11161d;
+  display: flex;
+
+}
 nav {
     position: fixed;
     top: 0;
