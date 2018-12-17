@@ -9,7 +9,7 @@ $(window).on('scroll', function() {
     });
   }
 function bodyLogin(){
-  $("body").css({"background-image":"url('assets/bg-login-5cent.jpg')","background-size": "cover"});
+  $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-size": "cover"});
   $(".foot").css({"position": "absolute"});
 }
 function bodyIndex(){
