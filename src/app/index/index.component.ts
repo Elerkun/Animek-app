@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-declare var $: any;
+declare function bodyIndex() : any;
+declare function scroll() : any;
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.css'],
+
 })
 export class IndexComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
+     scroll();
+     bodyIndex();
 
-  $(window).on('scroll', function() {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('black');
-            } else {
-                $('nav').removeClass('black');
-            }
-        })
 
   }
 
