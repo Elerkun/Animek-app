@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -18,6 +19,7 @@ const routes: Routes = [
     IndexComponent,
     FooterComponent,
     LoginComponent,
+    HeaderComponent,
 
   ],
   imports: [

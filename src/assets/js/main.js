@@ -10,9 +10,9 @@ $(window).on('scroll', function() {
   }
 function bodyLogin(){
   $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-size": "cover"});
-  $(".foot").css({"position": "absolute"});
+  $(".foot").css({ "margin-top" : "900px"});
 }
 function bodyIndex(){
   $("body").css({"background":"#081016"});
-  $(".foot").css({"position": "relative"});
+
 }
