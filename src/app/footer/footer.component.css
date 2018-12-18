@@ -6,6 +6,10 @@
   color: #7a858f;
   background-color: #11161d;
   display: flex;
+  border-top-style: solid;
+  border-top-color: #7f8fad;
+  border-bottom-style: solid;
+  border-bottom-color: #7f8fad;
 
 }
 .foot p{
