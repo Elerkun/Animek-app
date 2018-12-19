@@ -16,4 +16,8 @@ function bodyIndex(){
   $("body").css({"background":"#081016"});
 
 }
-    
+
+function bodySignin(){
+  $("body").css({"background-image":"url('assets/images/bg-signin-ows.jpg')","background-size": "cover"});
+  $(".foot").css({ "margin-top" : "900px"});
+}
