@@ -21,3 +21,7 @@ function bodySignin(){
   $("body").css({"background-image":"url('assets/images/bg-signin-ows.jpg')","background-size": "cover"});
   $(".foot").css({ "margin-top" : "900px"});
 }
+function bodyWhite(){
+  $("body").css({"background-color":"#fffdfd ","background-size": "cover"});
+  $(".foot").css({ "margin-top" : "900px"});
+}

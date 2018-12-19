@@ -8,12 +8,14 @@ import { LoginComponent } from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './signin/signin.component';
+import { AnimePageComponent } from './anime-page/anime-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
+  {path:'anime-page', component:AnimePageComponent},
 ]
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ const routes: Routes = [
     LoginComponent,
     HeaderComponent,
     SigninComponent,
+    AnimePageComponent,
 
   ],
   imports: [
