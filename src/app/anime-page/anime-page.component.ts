@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare function bodyPages() : any;
+declare function animePageScroll(): any;
+
 
 @Component({
   selector: 'app-anime-page',
@@ -12,6 +14,7 @@ export class AnimePageComponent implements OnInit {
 
   ngOnInit() {
     bodyPages();
+    animePageScroll();
 
   }
 
