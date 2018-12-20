@@ -9,19 +9,18 @@ $(window).on('scroll', function() {
     });
   }
 function bodyLogin(){
-  $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-size": "cover"});
+  $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-position": "center","background-size": "cover"});
   $(".foot").css({ "margin-top" : "900px"});
 }
 function bodyIndex(){
   $("body").css({"background":"#081016"});
 
 }
-
 function bodySignin(){
-  $("body").css({"background-image":"url('assets/images/bg-signin-ows.jpg')","background-size": "cover"});
+  $("body").css({"background-image":"url('assets/images/bg-signin-.jpg')","background-position": "center","background-size": "cover"});
   $(".foot").css({ "margin-top" : "900px"});
 }
-function bodyWhite(){
-  $("body").css({"background-color":"#fffdfd ","background-size": "cover"});
+function bodyPages(){
+  $("body").css({"background-color":" #d3d5d2 ","background-size": "cover", "background-position": "center"});
   $(".foot").css({ "margin-top" : "900px"});
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare function bodyWhite() : any;
+declare function bodyPages() : any;
 
 @Component({
   selector: 'app-anime-page',
@@ -11,7 +11,7 @@ export class AnimePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    bodyWhite();
+    bodyPages();
 
   }
 
