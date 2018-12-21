@@ -5,7 +5,7 @@
     position: absolute;
     width: 400px;
     padding: 50px;
-    top:70%;
+    margin-top: 350px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(127, 143, 173);

@@ -10,7 +10,7 @@ $(window).on('scroll', function() {
   }
 function bodyLogin(){
   $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-position": "center","background-size": "cover"});
-  $(".foot").css({ "margin-top" : "700px"});
+  $(".foot").css({ "margin-top" : "800px"});
 }
 function bodyIndex(){
   $("body").css({"background":"#081016"});
@@ -18,7 +18,7 @@ function bodyIndex(){
 }
 function bodySignin(){
   $("body").css({"background-image":"url('assets/images/bg-signin-.jpg')","background-position": "center","background-size": "cover"});
-  $(".foot").css({ "margin-top" : "700px"});
+  $(".foot").css({ "margin-top" : "800px"});
 }
 function bodyPages(){
   $("body").css({"background-color":" #d3d5d2 ","background-size": "cover", "background-position": "center"});
