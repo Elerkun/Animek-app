@@ -171,5 +171,5 @@ li a:hover {
 .comments-content img{
   width: 500px !important;
   height: 25vh !important;
-  object-fit: fill;
+  object-fit: contain;
 }
