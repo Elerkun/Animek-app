@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Anime } from './anime';
+import {IndexService} from './index.service';
 declare function bodyIndex() : any;
 declare function scroll() : any;
 @Component({
@@ -9,12 +11,15 @@ declare function scroll() : any;
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  animes: Anime[];
+  data;
+  constructor(private animeService: IndexService) {
 
+  }
   ngOnInit() {
      scroll();
      bodyIndex();
-
+     this.animeService.getAnimes().subscribe(animes => this.data = animes['data']);
 
   }
 

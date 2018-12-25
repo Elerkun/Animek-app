@@ -113,9 +113,10 @@ div.sect_1{
 
 }
 
-.content_animes_recomendados p{
-    width: 500px;
-    height: 200px;
+
+.content_animes_recomendados div p{
+    max-width: 500px;
+    max-height: 700px;
     margin: 30px 10px;
     padding-right:10px;
     text-align: justify;
@@ -127,4 +128,9 @@ div.sect_1{
     background-color: white;
     color:rgb(92, 114, 138);
 
+}
+
+.content_animes_recomendados div img{
+    max-width: 500px;
+    height: 300px;
 }

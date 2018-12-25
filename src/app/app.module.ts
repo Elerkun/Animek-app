@@ -9,6 +9,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './signin/signin.component';
 import { AnimePageComponent } from './anime-page/anime-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -27,9 +28,11 @@ const routes: Routes = [
     SigninComponent,
     AnimePageComponent,
 
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

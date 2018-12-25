@@ -16,6 +16,7 @@ filter: blur(0);
   margin-top: -100px;
   position: absolute;
   border-radius: 2px;
+  box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2);
 }
 .imgFixed{
   position: fixed;
@@ -34,22 +35,28 @@ filter: blur(0);
 
 }
 .title h1{
-   font-size: 40px;
+   font-size: 1.8em;
+   text-transform: uppercase;
+   font-weight: 300;
    margin-left: 350px;
    color: #7f8fad;
    border-bottom: 2px solid;
 }
 .title p{
-   font-size: 20px;
+   font-size: 14px;
+   line-height: 1.5;
+   max-width: 900px;
+   padding: 15px 0;
    margin-left: 350px;
    width: 70%;
-   color: #7f8fad;
+   color: rgb(92, 114, 138);
 
 }
 .dropdown{
   display: inline-block;
   width: 100px;
   margin-left: 100px;
+  
 
 
 }
@@ -66,6 +73,8 @@ filter: blur(0);
 }
 .dropdown button:hover{
   background-color: #7f8fad;
+  margin-top: -50;
+
 
 }
 .fav{
@@ -102,6 +111,9 @@ filter: blur(0);
 .dropdown:hover #myDropdown {
   visibility: visible;
   opacity: 1;
+  position: relative;
+
+
 
 
 }
@@ -149,6 +161,9 @@ li a:hover {
 .coments{
   display: flex;
   flex-direction: column;
+  margin-top: -650px;
+
+
 
 }
 .comments-community{
@@ -157,6 +172,7 @@ li a:hover {
   color:black;
   margin-left: 400px !important;
   margin-top: 50px;
+  color: #7f8fad;
 }
 .comments-content{
   background-color: white;
@@ -172,4 +188,22 @@ li a:hover {
   width: 500px !important;
   height: 25vh !important;
   object-fit: contain;
+}
+.animeInfo{
+  width: 20%;
+  height: 600px;
+  background-color: white;
+  margin-left: 85px;
+  margin-top: 30px;
+  border-radius: 3px;
+}
+.data .type{
+  margin: 15px;
+  color: rgb(92, 114, 138);
+}
+.data .value{
+  margin: 15px;
+  color:  #7f8fad;
+
+
 }
