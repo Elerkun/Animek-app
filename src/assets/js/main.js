@@ -22,5 +22,5 @@ function bodySignin(){
 }
 function bodyPages(){
   $("body").css({"background-color":" #d3d5d2 ","background-size": "cover", "background-position": "center"});
-  $(".foot").css({ "position" : "relative"});
+  $(".foot").css({ "position" : "position-relative"});
 }

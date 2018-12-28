@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { SigninComponent } from './signin/signin.component';
 import { AnimePageComponent } from './anime-page/anime-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
   {path:'anime-page', component:AnimePageComponent},
+  {path:'search', component:SearchComponent},
 ]
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ const routes: Routes = [
     HeaderComponent,
     SigninComponent,
     AnimePageComponent,
+    SearchComponent,
 
 
   ],
