@@ -14,7 +14,7 @@
 <h1>Trending Anime</h1>
 <div class="cointainer">
 <div class="trending-anime" *ngFor="let anime of data">
-<img [src]="anime.attributes.posterImage.tiny" class="trending-image" />
+<a [routerLink]="['/anime-page' , anime.id]"><img [src]="anime.attributes.posterImage.tiny" class="trending-image" /></a>
    <div class ="anime-info">
       <p class ="title">{{anime.attributes.titles.en}} </p>
       <p class ="description">  {{anime.attributes.synopsis}}.</p>

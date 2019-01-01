@@ -25,4 +25,9 @@ getAllAnimes(): Observable<Anime[]> {
     response => response as Anime[]
   ));
 }
+passAnime(id):Observable<Anime> {
+    return this.http.get(`${this.allAnimes}/${id}`).pipe(map(
+    response => response as Anime
+  ));
+}
 }

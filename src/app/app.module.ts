@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
-  {path:'anime-page', component:AnimePageComponent},
+  {path:'anime-page/:id', component:AnimePageComponent},
   {path:'search', component:SearchComponent},
 ]
 @NgModule({
