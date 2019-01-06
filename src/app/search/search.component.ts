@@ -12,13 +12,15 @@ export class SearchComponent implements OnInit {
   animes: Anime[];
   data;
   allAnimes;
+  categories;
   constructor(private animeService: SearchService) { }
 
   ngOnInit() {
   bodyPages();
 
-  this.animeService.getAnimes().subscribe(animes => this.data = animes['data']);
+  this.animeService.getAnimes().subscribe(animes =>this.data = animes['data']);
   this.animeService.getAllAnimes().subscribe(animes => this.allAnimes = animes['data']);
+  this.animeService.getCategories().subscribe(animes => this.categories = animes['data']);
 
 }
 

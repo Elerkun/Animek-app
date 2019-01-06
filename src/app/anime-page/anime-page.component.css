@@ -66,7 +66,7 @@ filter: blur(0);
   padding: 0;
   margin-top:-20px;
   cursor: context-menu;
-  
+
 }
 .dropdown{
   display: inline-block;
@@ -147,7 +147,7 @@ filter: blur(0);
 }
 ul {
   list-style-type: none;
-  width: 50% !important;
+  width: 50%;
   overflow: hidden;
   margin-left: 400px;
   margin-top: -20px;
@@ -184,23 +184,24 @@ li a:hover {
 
 
 }
-.comments-community{
+ .comments-community{
   font-size: 20px;
   border-bottom: none;
   color:black;
-  margin-left: 400px !important;
+  margin-left: 600px;
   margin-top: 50px;
   color: #7f8fad;
 }
-.comments-content{
+ .comments-content{
   background-color: white;
-  width: 500px !important;
-  margin-left: 400px !important;
+  width: 500px;
+  margin-left: 600px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   border-radius: 5px;
-  margin: 29px;
+  margin-top: 10px;
+
 }
 .comments-content img{
   width: 500px !important;

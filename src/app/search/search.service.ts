@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { CLIENTES } from './clientes.json';
 import { Anime } from './anime';
+import { Categories } from './categories';
 import {/*of,*/Observable} from 'rxjs'; //IMPORTANT: Es la clase que permite transformar todas los flujos de datos para que se puedan manejar
 import {map} from 'rxjs/operators'
 import {HttpClient} from '@angular/common/http' //IMPORTANT: Crea la conexion Http para que la creacion de clientes sea dinámica
@@ -11,9 +12,8 @@ export class SearchService {
 
   private urlEndPoint: string ='https://kitsu.io/api/edge/trending/anime'
   private allAnimes: string ='https://kitsu.io/api/edge/anime'
+  private allCategories: string ='https://kitsu.io/api/edge/categories'
   constructor(private http: HttpClient) { }
-  data;
-  displayItems;
 
   getAnimes(): Observable<Anime[]> {
       return this.http.get(this.urlEndPoint).pipe(map(
@@ -29,5 +29,10 @@ passAnime(id):Observable<Anime> {
     return this.http.get(`${this.allAnimes}/${id}`).pipe(map(
     response => response as Anime
   ));
+}
+getCategories(): Observable<Categories>{
+  return this.http.get(this.allCategories).pipe(map(
+  response => response as Categories
+));
 }
 }
