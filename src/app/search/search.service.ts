@@ -12,7 +12,7 @@ export class SearchService {
 
   private urlEndPoint: string ='https://kitsu.io/api/edge/trending/anime'
   private allAnimes: string ='https://kitsu.io/api/edge/anime'
-  private allCategories: string ='https://kitsu.io/api/edge/categories'
+  private allCategories: string ="https://kitsu.io/api/edge/categories?page%5Blimit%5D=10&page%5Boffset%5D";
   constructor(private http: HttpClient) { }
 
   getAnimes(): Observable<Anime[]> {
@@ -26,12 +26,14 @@ getAllAnimes(): Observable<Anime[]> {
   ));
 }
 passAnime(id):Observable<Anime> {
+
     return this.http.get(`${this.allAnimes}/${id}`).pipe(map(
     response => response as Anime
   ));
 }
-getCategories(): Observable<Categories>{
-  return this.http.get(this.allCategories).pipe(map(
+getCategories(pageOffset): Observable<Categories>{
+
+  return this.http.get(`${this.allCategories}=${pageOffset}`).pipe(map(
   response => response as Categories
 ));
 }

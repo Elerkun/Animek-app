@@ -32,11 +32,11 @@ function moreInfo(){
       if($(".title").height()== 300){
         $(".title p").css({"text-overflow": "clip", "white-space":"normal", "overflow":"visible"})
         $(".title ").css({"height": "500px"})
-        $(".dropbtn").css({"position": "absolute", "margin-top" : "-275px"})
-        $(".heart").css({"position": "absolute", "margin-top" : "-140px"})
-        $(".more").css({ "margin-top" : "120px"})
-        $("#myDropdown").css({"margin-top" : "-240px"})
-        $("ul").css({"margin-top" : "50px"})
+        $(".dropbtn").css({"position": "absolute", "margin-top" : "-200px"})
+        $(".heart").css({"position": "absolute", "margin-top" : "-40px"})
+        $(".more").css({ "margin-top" : "150px"})
+        $("#myDropdown").css({"margin-top" : "-160px"})
+        $(".ul_section").css({"margin-top" : "50px"})
         $(".more").text("Less-")
 
       }else{
@@ -46,7 +46,7 @@ function moreInfo(){
         $(".heart").css({"position": "", "margin-top" : ""})
         $(".more").css({ "margin-top" : "-20px"})
         $("#myDropdown").css({"margin-top" : ""})
-        $("ul").css({"margin-top" : ""})
+        $(".ul_section").css({"margin-top" : ""})
         $(".more").text("More+")
         $(".more").css({"margin-top" : ""})
       }

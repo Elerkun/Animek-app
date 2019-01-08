@@ -28,6 +28,27 @@
    <p class="type">{{cat.type}}</p>
    <p class="value">{{cat.attributes.slug}}</p>
   </div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Next</button>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Categories</h4>
+        </div>
+        <div class="modal-body" *ngFor="let cat of categories">
+        <a [routerLink]="[cat.pageOffset]">  <p>{{cat.attributes.slug}}</p></a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" (click)="cargarCliente(10)">next</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

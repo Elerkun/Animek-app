@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Anime } from './anime';
 import {SearchService} from './search.service';
+import {Router, ActivatedRoute} from '@angular/router';
 declare function bodyPages() : any;
 
 @Component({
@@ -13,15 +14,26 @@ export class SearchComponent implements OnInit {
   data;
   allAnimes;
   categories;
-  constructor(private animeService: SearchService) { }
+
+
+  constructor(private animeService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-  bodyPages();
+     this.cargarCliente();
+     bodyPages();
 
   this.animeService.getAnimes().subscribe(animes =>this.data = animes['data']);
   this.animeService.getAllAnimes().subscribe(animes => this.allAnimes = animes['data']);
-  this.animeService.getCategories().subscribe(animes => this.categories = animes['data']);
 
 }
+cargarCliente(): void{
+    this.activatedRoute.params.subscribe(params =>{
+      let pageOffset = params['pageOffset'];
+      this.animeService.getCategories(pageOffset).subscribe(animes => this.categories = animes['data']);
+
+    });
+
+  }
+
 
 }

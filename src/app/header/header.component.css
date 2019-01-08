@@ -10,7 +10,7 @@
     border-top-color: #7f8fad;
     border-bottom-style: solid;
     border-bottom-color: #7f8fad;
-    
+
 
 
 
@@ -28,7 +28,7 @@ nav .logo{
 }
 nav ul{
     list-style:none;
-    float: center;
+    margin-top: 10px;
     margin-right: 10px;
     padding: 0;
     display: flex;
@@ -50,7 +50,7 @@ nav ul li a{
    left: 950px;
    background-color: #939baa;
    transform: translate(-50%,-50%);
-   height: 20px;
+   height: 35px;
    border-radius: 20px;
    padding: 10px;
 
