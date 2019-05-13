@@ -1,91 +1,111 @@
 <app-header></app-header>
-
 <section class="banner"><img [src]="data.attributes.coverImage.large" /></section>
-<img class="header" [src]="data.attributes.posterImage.small" />
-
-<div class="title" >
-    <h1>{{data.attributes.canonicalTitle}}</h1>
-    <p>{{data.attributes.synopsis}}</p>
-    <h6 class="more">More+ </h6>
-    <div class="dropdown">
-      <button class="dropbtn" >Add to List</button>
-      <div  id="myDropdown" class="dropdown-content">
-        <a href="#home">Plan to watch</a>
-        <a href="#about">Drop</a>
-        <a href="#contact">Watching</a>
+<div class="card">
+  <div class="card-body title">
+     <div class="container">
+        <div class="row ml-auto">
+          <div class="col-9">
+              <h1 class="ak_title-anime ">{{data.attributes.canonicalTitle}}</h1>
+              <p class="ak_desciption-anime ">{{data.attributes.synopsis}}</p>
+          </div>
+          <div class="col-3">
+              <img class="img-fluid" alt="ak-img_anime" [src]="data.attributes.posterImage.small" />
+          </div>
+          <div class="col-6">
+              <ul class="ul_section">
+                  <li><a class="active" href="#home">Comments</a></li>
+                  <li><a href="#news">Episode</a></li>
+                  <li><a href="#contact">Characters</a></li>
+                  <li><a href="#about">Staff</a></li>
+              </ul>
+          </div>
+          <div class="col mt-4">
+              <div class="fav">
+                  <button class="heart" name="button"><i class="far fa-heart"></i></button>
+              </div>
+                <div class="dropdown" style="margin-top:10px;">
+                   <button class="dropbtn" >Add to List</button>
+                      <div  id="myDropdown" class="dropdown-content">
+                        <a href="#home">Plan to watch</a>
+                        <a href="#about">Drop</a>
+                        <a href="#contact">Watching</a>
+                      </div>
+                </div>
+        </div>
       </div>
     </div>
-    <div class="fav">
-    <button class="heart" name="button"><i class="far fa-heart"></i></button>
-    </div>
-    <ul class="ul_section">
-        <li><a class="active" href="#home">Community Feed</a></li>
-        <li><a href="#news">Episode</a></li>
-        <li><a href="#contact">Characters</a></li>
-        <li><a href="#about">Staff</a></li>
-    </ul>
+  </div>
 </div>
-<div class="animeInfo">
-  <div class="data">
-   <p class="type">Format</p>
-   <p class="value">TV</p>
-</div>
-<div class="data">
-   <p class="type">Episodes</p>
-   <p class="value">22</p>
-</div>
-<div class="data">
-   <p class="type">Episode Duration</p>
-   <p class="value">24 mins</p>
-</div>
-<div class="data">
-   <p class="type">Status</p>
-   <p class="value">Finished</p>
-</div>
-<div class="data">
-   <p class="type">Start Date</p>
-   <p class="value">Apr 8, 2017</p>
-</div>
-<div class="data">
-   <p class="type">End Date</p>
-   <p class="value">Sep 16, 2017</p>
-</div>
-<div class="data">
-   <p class="type">Season</p>
-   <p class="value">Spring 2017</p>
-</div>
-<div class="data">
-   <p class="type">Genres</p>
-   <p class="value">Action, Drama, Mecha, Mahou Shoujo, Sci-Fi</p>
-</div>
-</div>
+<h1 class="d-flex justify-content-center mt-5">Anime information</h1>
+<table class="table d-flex justify-content-center mt-5">
+  <tbody>
+    <tr>
+      <th scope="col" >Format</th>
+      <th scope="col" >Episodes</th>
+      <th scope="col" >Episode Duration</th>
+      <th scope="col" >Status</th>
+    </tr>
+    <tr>
+      <td>TV</td>
+      <td>22</td>
+      <td>24 min</td>
+      <td>Finished</td>
+    </tr>
+    <tr>
+      <th scope="col" >Start Date</th>
+      <th scope="col" >End Date</th>
+      <th scope="col" >Season</th>
+      <th scope="col" >Genres</th>
 
-<section class="coments">
-   <h1 class =" comments-community"> Community Feed </h1>
-   <div class="comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
+    </tr>
+    <tr>
+      <td>Apr 8, 2017</td>
+      <td>Sep 16, 2017</td>
+      <td>Spring 2017</td>
+      <td>Action, Drama, Mecha, Mahou Shoujo, Sci-Fi</td>
+    </tr>
+  </tbody>
+</table>
+<div class="container">
+  <div class="row">
+    <div class="col mt-5">
+      <div class="card ml-5" style="width: 18rem;">
+        <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Community Feed </h5>
+          <p class="card-text ">What a Anime, one of the top of the season!</p>
+        </div>
+      </div>
+      </div>
+      <div class="col mt-5">
+        <div class="card ml-5" style="width: 18rem;">
+          <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Community Feed </h5>
+            <p class="card-text ">What a Anime, one of the top of the season!</p>
+         </div>
+        </div>
+        </div>
+        <div class="col mt-5">
+          <div class="card ml-5" style="width: 18rem;">
+            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Community Feed </h5>
+              <p class="card-text ">What a Anime, one of the top of the season!</p>
+            </div>
+         </div>
+        </div>
+        <div class="col mt-5">
+          <div class="card ml-5" style="width: 18rem;">
+            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Community Feed </h5>
+              <p class="card-text ">What a Anime, one of the top of the season!</p>
+            </div>
+         </div>
+        </div>
    </div>
-   <div class=" comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
-   </div>
-   <div class=" comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
-   </div>
-   <div class=" comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
-   </div>
-   <div class=" comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
-   </div>
-   <div class=" comments-content">
-     <p> What a Anime, one of the top of the season!</p>
-     <img src="assets/images/recreators.jpg" alt=""/>
-   </div>
-</section>
+  </div>
+
 
 <app-footer></app-footer>

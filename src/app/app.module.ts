@@ -11,6 +11,8 @@ import { SigninComponent } from './signin/signin.component';
 import { AnimePageComponent } from './anime-page/anime-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { AnimesSearchComponent } from './animes-search/animes-search.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path:'signin', component:SigninComponent},
   {path:'anime-page/:id', component:AnimePageComponent},
   {path:'search', component:SearchComponent},
+  {path:'myProfile', component:MyProfileComponent},
+  {path:'animesSearch', component:AnimesSearchComponent},
 ]
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ const routes: Routes = [
     SigninComponent,
     AnimePageComponent,
     SearchComponent,
+    MyProfileComponent,
+    AnimesSearchComponent,
 
 
   ],

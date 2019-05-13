@@ -3,8 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import {SearchService} from 'src/app/search/search.service';
 import {Anime} from './anime'
 declare function bodyPages() : any;
-declare function moreInfo() : any;
-
+declare function favoritos() : any;
 
 @Component({
   selector: 'app-anime-page',
@@ -19,7 +18,7 @@ export class AnimePageComponent implements OnInit {
 
   ngOnInit() {
     bodyPages();
-    moreInfo();
+    favoritos();
     this.cargarAnime();
 
   }

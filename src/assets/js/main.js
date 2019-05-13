@@ -1,56 +1,29 @@
-function scroll(){
-$(window).on('scroll', function() {
-        if ($(window).scrollTop()) {
-            $('nav').addClass('black');
-        } else {
-            $('nav').removeClass('black');
-        }
-
-    });
-  }
-function bodyLogin(){
-  $("body").css({"background-image":"url('assets/images/bg-login-5cent.jpg')","background-position": "center","background-size": "cover"});
-  $(".foot").css({ "margin-top" : "800px"});
-}
 function bodyIndex(){
   $("body").css({"background":"#081016"});
-
-}
-function bodySignin(){
-  $("body").css({"background-image":"url('assets/images/bg-signin-.jpg')","background-position": "center","background-size": "cover"});
-  $(".foot").css({ "margin-top" : "800px"});
 }
 function bodyPages(){
   $("body").css({"background-color":" #d3d5d2 ","background-size": "cover", "background-position": "center"});
   $(".foot").css({ "position" : "position-relative"});
   $("body").fadeIn("slow");
 }
-function moreInfo(){
-
-  $(".more").click(function(){
-    if($(".title p").text().length> 150){
-      if($(".title").height()== 300){
-        $(".title p").css({"text-overflow": "clip", "white-space":"normal", "overflow":"visible"})
-        $(".title ").css({"height": "500px"})
-        $(".dropbtn").css({"position": "absolute", "margin-top" : "-200px"})
-        $(".heart").css({"position": "absolute", "margin-top" : "-40px"})
-        $(".more").css({ "margin-top" : "150px"})
-        $("#myDropdown").css({"margin-top" : "-160px"})
-        $(".ul_section").css({"margin-top" : "50px"})
-        $(".more").text("Less-")
-
+function favoritos(){
+  $(".heart").click(function(){
+      if($(this).attr("style") == "background-color: red;"){
+        $(this).css({"background-color":" #ff00b6"});
+        $(this).mouseenter(function(){
+            $(this).css({"background-color":"#7f8fad"});
+        });
+        $(this).mouseout(function(){
+            $(this).css({"background-color":"#ff00b6"});
+        });
       }else{
-        $(".title p").css({"text-overflow": "ellipsis", "white-space":"nowrap", "overflow":"hidden"})
-        $(".title ").css({"height": "300px"})
-        $(".dropbtn").css({"position": "", "margin-top" : ""})
-        $(".heart").css({"position": "", "margin-top" : ""})
-        $(".more").css({ "margin-top" : "-20px"})
-        $("#myDropdown").css({"margin-top" : ""})
-        $(".ul_section").css({"margin-top" : ""})
-        $(".more").text("More+")
-        $(".more").css({"margin-top" : ""})
+        $(this).css({"background-color":"red"});
+        $(this).mouseout(function(){
+            $(this).css({"background-color":"red"});
+        });
+        $(this).mouseenter(function(){
+            $(this).css({"background-color":"red"});
+        });
       }
-    }
   });
-
 }

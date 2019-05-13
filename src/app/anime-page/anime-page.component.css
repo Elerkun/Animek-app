@@ -4,24 +4,14 @@ section.banner {
   background-size: cover;
   background-position: center;
   border: 2px solid #7f8fad;
-  filter: blur(5px);
-
+}
+.header{
+  width: 300px;
+  height: 200px;
 }
 .banner img{
   width: 100%;
   height:40vh;
-}
-.banner:hover{
-filter: blur(0);
-}
-.header{
-  height:300px;
-  width: 200px;
-  margin-left: 100px;
-  margin-top: -100px;
-  position: absolute;
-  border-radius: 2px;
-  box-shadow: 4px 4px 4px rgb(0, 0, 0, 0.2);
 }
 .imgFixed{
   position: fixed;
@@ -34,52 +24,25 @@ filter: blur(0);
   top:0;
 }
 .title{
-   height: 300px;
    background-color: #fff;
-
-
 }
-.title h1{
+.ak_title-anime{
    font-size: 1.8em;
    text-transform: uppercase;
    font-weight: 300;
-   margin-left: 350px;
    color: #7f8fad;
-   border-bottom: 2px solid;
 }
-.title p{
+.ak_desciption-anime{
    font-size: 14px;
    line-height: 1.5;
-   max-width: 900px;
-   max-height: 100px;
-   padding: 15px 0;
-   margin-left: 350px;
-   width: 70%;
    color: rgb(92, 114, 138);
-   text-overflow: ellipsis;
-   white-space: nowrap;
-   overflow: hidden;
-
 }
-.title .more{
-  margin-left: 350px;
-  padding: 0;
-  margin-top:-20px;
-  cursor: context-menu;
-
+.col{
+  flex-grow: 0;
 }
 .dropdown{
-  display: inline-block;
   width: 100px;
-  margin-left: 100px;
-  margin-top: 75px;
-
-
-
-
 }
-
-
 .dropdown .dropbtn{
   border: none;
   padding: 8px 16px;
@@ -92,28 +55,17 @@ filter: blur(0);
 .dropdown button:hover{
   background-color: #7f8fad;
   margin-top: -50;
-
-
 }
-.fav{
-    margin-left: 275px !important;
-    margin-top: -160px ;
-}
-
 .fav .heart{
   border: none;
   padding: 8px 16px;
-  background-color:   #ff00b6 ;
+  background-color:#ff00b6;
   color: white;
   transition: .3s;
   border-radius: 3px;
-
-
-
 }
 .fav .heart:hover{
   background-color: #7f8fad;
-
 }
 .dropdown #myDropdown{
   color: rgb(61, 180, 242);
@@ -124,16 +76,11 @@ filter: blur(0);
   transition: .3s;
   opacity: 0;
   width: 150px;
-
 }
 .dropdown:hover #myDropdown {
   visibility: visible;
   opacity: 1;
   position: relative;
-
-
-
-
 }
 #myDropdown a{
   display: block;
@@ -147,18 +94,13 @@ filter: blur(0);
 }
 .ul_section {
   list-style-type: none;
-  width: 50%;
   overflow: hidden;
-  margin-left: 400px;
-  margin-top: -20px;
-
-
+  margin: 0;
+  padding: 0;
 }
-
 li {
   float: left;
 }
-
 li a {
   display: block;
   color: #7f8fad;
@@ -166,63 +108,6 @@ li a {
   padding: 30px;
   text-decoration: none;
 }
-
 li a:hover {
   color:  rgb(61, 180, 242);
-}
-.title h1{
-   font-size: 40px;
-   margin-left: 350px;
-   color: #7f8fad;
-   border-bottom: 2px solid;
-}
-.coments{
-  display: flex;
-  flex-direction: column;
-  margin-top: -650px;
-
-
-
-}
- .comments-community{
-  font-size: 20px;
-  border-bottom: none;
-  color:black;
-  margin-left: 600px;
-  margin-top: 50px;
-  color: #7f8fad;
-}
- .comments-content{
-  background-color: white;
-  width: 500px;
-  margin-left: 600px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 5px;
-  margin-top: 10px;
-
-}
-.comments-content img{
-  width: 500px !important;
-  height: 25vh !important;
-  object-fit: contain;
-}
-.animeInfo{
-  width: 20%;
-  height: 700px;
-  background-color: white;
-  margin-left: 85px;
-  margin-top: 30px;
-  border-radius: 3px;
-}
-.data .type{
-  margin: 15px;
-  color: rgb(92, 114, 138);
-}
-.data .value{
-  margin: 15px;
-  color:  #7f8fad;
-
-
 }

@@ -1,136 +1,42 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-
-
-
-
-nav {
-    position: fixed;
-    top: 0;
-    left:0;
-    width:100%;
-    height :100px;
-    padding: 10px 100px;
-    box-sizing: border-box;
-    transition: .3s;
-
+nav .logo> img {
+  width: 200px;
+  height: 100px;
 }
-
-nav.black{
-   background: rgba(0,0,0,0.8);
-   height: 100px;
-   padding: 10px 100px;
-}
-nav .logo{
-    padding: 22px 20px;
-    height: 200px;
-    float: left;
-    font-size: 70px;
-    transition: .3s;
-    color: white;
-    font-family: 'almostJapanese';
-
-}
-nav.black .logo{
-    color:#fff;
-}
-nav ul{
-    list-style:none;
-    float: right;
-    margin: 20px;
-    padding: 0;
-    display: flex;
-
-}
-nav ul li {
-    list-style: none;
-
-}
-nav ul li a{
-    list-style: none;
-    color: white;
-    padding: 12px 30px;
-    text-decoration: none;
-
-}
-
-nav.black ul li a {
-    color: #fff;
-}
-nav ul li a:focus{
-    outline: none;
-}
-
-nav ul li a.active{
-    background: none;
-    border: 1px solid;
-    padding: 9px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    color: #fff;
-
-
-
-}
-div.sect_1{
-  background: url(src/assets/images/yourname2.gif);
+.ak_div-principal{
+  background-image: url("/assets/images/yourname2.gif");
   width: 100%;
-  height:100vh;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
-  background-position: center;
-
 }
-.content_animes_recomendados{
-  float: right;
-
-
+.ak_text{
+  position: relative;
+  letter-spacing: 4px;
+  font-size: 2em;
+  color: #edf1f5;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #000, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
-
-.content_text_compartir h1{
-  color: #7f8fad;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-left: -600px;
-  float: left;
-  margin-top: 300px;
-
-
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }
-.content_text_compartir h2{
-  color: #596985;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-left: -600px;
-  float: left;
-  margin-top: 350px;
-
-
+.ak_card-logo{
+  background-color: rgba(0, 0, 0, 0);
+  border : none;
 }
-.content_animes_recomendados h3{
-  color: #7f8fad;
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin-left: 10px;
-
-}
-
-
-.content_animes_recomendados div p{
-    max-width: 500px;
-    max-height: 700px;
-    margin: 30px 10px;
-    padding-right:10px;
-    text-align: justify;
-    font-size: 0.80rem;
-    line-height: 20px;
-    border-radius: 5px;
-    display: flex;
-    border: 2px solid white;
-    background-color: white;
-    color:rgb(92, 114, 138);
-
-}
-
-.content_animes_recomendados div img{
-    max-width: 500px;
-    height: 300px;
+.ak_card-homeText{
+  background-color: rgba(0, 0, 0, 0);
+  border : none;
 }
