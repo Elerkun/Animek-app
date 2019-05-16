@@ -19,11 +19,14 @@ export class SigninComponent implements OnInit {
   }
   public create():void{
   this.usuarioService.create(this.usuario).subscribe(usuario => {
-    this.router.navigate(['/login']);
+    this.usuarioService.getUsuario_byNameAndPass(this.usuario.nombre,this.usuario.pass).subscribe((usuario)=> {
+    this.usuario = usuario;
+    this.router.navigate(['/uploadImage', this.usuario.id]);
     swal.fire('Cliente Nuevo', ` El cliente ha sido creado con exito! `, 'success');
-    },
     err => {
       this.errores = err.error.mensaje as string[];
+       }
     });
+   });
   }
 }

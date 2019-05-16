@@ -1,15 +1,15 @@
 <app-header></app-header>
    <section class="img_banner" >
-       <img src="assets/images/bg-signin-.jpg">
+       <img src="http://localhost:8080/api/uploads/img/{{usuario.banner}}">
   </section>
   <div class="card">
     <div class="card-body">
       <div class="container">
         <div class="row d-flex align-items-stretch">
           <div class="col-3">
-            <img src="{{usuario.foto}}"  class="img-fluid ak_img-profile" alt="img profile" width="200" height="100">
+            <img src="http://localhost:8080/api/uploads/img/{{usuario.foto}}"   alt="img profile" width="200" height="300">
           </div>
-          <div class="col ">
+          <div class="col">
             <div class="row h-50">
               <div class="col">
                 <p class="name" > {{usuario.nombre}}</p>

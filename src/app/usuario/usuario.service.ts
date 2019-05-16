@@ -56,4 +56,29 @@ export class UsuarioService {
     });
     return this.http.request(req);
    }
+   DeleteFoto(id): Observable<HttpEvent<{}>>{
+    let formData = new FormData();
+    formData.append("id",id);
+    const req = new HttpRequest('DELETE',`${this.urlEnpoint}/imgDelete/`, formData,{
+      reportProgress: true
+    });
+    return this.http.request(req);
+   }
+   updateBanner(archivo: File, id): Observable<HttpEvent<{}>>{
+    let formData = new FormData();
+    formData.append("archivo",archivo);
+    formData.append("id",id);
+    const req = new HttpRequest('POST',`${this.urlEnpoint}/bannerUpload/`, formData,{
+      reportProgress: true
+    });
+    return this.http.request(req);
+   }
+   DeleteBanner(id): Observable<HttpEvent<{}>>{
+    let formData = new FormData();
+    formData.append("id",id);
+    const req = new HttpRequest('DELETE',`${this.urlEnpoint}/imgBannerDelete/`, formData,{
+      reportProgress: true
+    });
+    return this.http.request(req);
+   }
 }
