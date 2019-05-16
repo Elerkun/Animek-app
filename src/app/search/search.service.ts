@@ -11,14 +11,21 @@ import {HttpClient} from '@angular/common/http' //IMPORTANT: Crea la conexion Ht
 export class SearchService {
 
   private urlEndPoint: string ='https://kitsu.io/api/edge/trending/anime'
+  private urlEndPointManga: string ='https://kitsu.io/api/edge/trending/manga'
   private allAnimes: string ='https://kitsu.io/api/edge/anime'
-  private allCategories: string ="https://kitsu.io/api/edge/categories?page%5Blimit%5D=10&page%5Boffset%5D";
+  private allMangas: string ='https://kitsu.io/api/edge/manga'
+  private allCategories: string ="https://kitsu.io/api/edge/categories?page[limit]=10&page[offset]=";
   constructor(private http: HttpClient) { }
 
   getAnimes(): Observable<Anime[]> {
       return this.http.get(this.urlEndPoint).pipe(map(
       response => response as Anime[]
     ));
+}
+getManga(): Observable<Anime[]> {
+    return this.http.get(this.urlEndPointManga).pipe(map(
+    response => response as Anime[]
+  ));
 }
 getAllAnimes(): Observable<Anime[]> {
     return this.http.get(this.allAnimes).pipe(map(
@@ -31,9 +38,14 @@ passAnime(id):Observable<Anime> {
     response => response as Anime
   ));
 }
-getCategories(pageOffset): Observable<Categories>{
+passManga(id):Observable<Anime> {
 
-  return this.http.get(`${this.allCategories}=${pageOffset}`).pipe(map(
+    return this.http.get(`${this.allMangas}/${id}`).pipe(map(
+    response => response as Anime
+  ));
+}
+getCategories(pageOffset): Observable<Categories>{
+  return this.http.get(`${this.allCategories} + ${pageOffset}`).pipe(map(
   response => response as Categories
 ));
 }

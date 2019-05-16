@@ -1,69 +1,4 @@
-h1{
- font-size: 16px;
- margin-left: 50px;
 
-}
-.cointainer{
-  max-width: 900px;
-}
-.trending-anime{
-  max-width: 100%;
-  max-height: auto;
-  display: inline;
-}
-
-.trending-anime .trending-image{
-  width: auto;
-  height: auto;
-  margin-left:50px;
-  border-radius: 3px;
-  box-shadow: 2px 4px 8px rgb(0, 0, 0, 0.2);
-}
-
- .anime-info{
-  background-color: rgb(0, 0, 0,.8);
-  max-width: 600px;
-  max-height: auto;
-  border-radius: 5px;
-  margin-left: 150px;
-  margin-top: -200px;
-  display: block;
-  z-index: 1;
-  position: absolute;
-  color:white;
-  visibility: hidden;
-
-}
-.trending-anime .anime-info p{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.trending-anime:hover .anime-info{
-  filter: drop-shadow(8px 8px 10px gray);
-  visibility: visible;
-
-}
-.animeInfo{
-  width: 20%;
-  height: 900px;
-  background-color: white;
-  margin-left: 85px;
-  margin-top: -650px;
-  margin-bottom: 150px;
-  margin-right: 50px;
-  border-radius: 3px;
-  float: right;
-
-}
-.data .type{
-  margin: 15px;
-  color: rgb(92, 114, 138);
-}
-.data .value{
-  margin: 15px;
-  color:  #7f8fad;
-}
 .linkAnime{
   border: none;
   text-decoration: none;
@@ -74,14 +9,10 @@ h1{
   border-radius: 3px;
   width: 150px;
   padding: 8px 16px;
-  margin-left: 650px;
-  margin-top:10px;
 
 
 }
-.card-group{
 
-}
 .hovereffect {
 width:100%;
 height:100%;

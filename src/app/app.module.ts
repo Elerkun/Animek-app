@@ -13,16 +13,20 @@ import {HttpClientModule} from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AnimesSearchComponent } from './animes-search/animes-search.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import{FormsModule} from '@angular/forms';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
-  {path:'anime-page/:id', component:AnimePageComponent},
+  {path:'animemanga-page/:type/:id', component:AnimePageComponent},
   {path:'search', component:SearchComponent},
-  {path:'myProfile', component:MyProfileComponent},
-  {path:'animesSearch', component:AnimesSearchComponent},
+  {path:'myProfile/:id', component:MyProfileComponent},
+  {path:'animesmangasSearch', component:AnimesSearchComponent},
+  {path:'uploadImage/:id', component:UploadImagesComponent},
 ]
 @NgModule({
   declarations: [
@@ -36,13 +40,16 @@ const routes: Routes = [
     SearchComponent,
     MyProfileComponent,
     AnimesSearchComponent,
+    UsuarioComponent,
+    UploadImagesComponent,
 
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

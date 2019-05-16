@@ -1,52 +1,16 @@
-@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-.form-group{
-    position: absolute;
-    width: 400px;
-    padding: 50px;
-    margin-top: 350px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: rgb(127, 143, 173);
-    background: rgb(0, 0, 0,.8);
-    border-radius: 5px;
+.loginCard{
+  background: url('/assets/images/bg-login-5cent0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  width: 100%;
+  height:100vh;
 }
-.form-group h1{
-
-    font-size: 40px;
-    border-bottom: 6px solid rgb(61, 180, 242);
-    margin-bottom: 50px;
-    padding: 13px 0
+.loginForm{
+  background: rgb(0, 0, 0,.8);
+  color: rgb(127, 143, 173);
 }
-.textbox{
-    width: 100%;
-    overflow: hidden;
-    font-size: 20px;
-    padding: 8px 0;
-    margin:8px 0;
-    border-bottom: 1px solid rgb(61, 180, 242);
-}
-.textbox input{
-    border: none;
-    outline: none;
-    background: none;
-    color: rgb(61, 180, 242);
-    font-size: 18px;
-    width: 90px;
-    margin: 10px;
-}
-::placeholder {
-  color: rgb(61, 180, 242);
-  opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: rgb(61, 180, 242);
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
- color: rgb(61, 180, 242);
-}
-.btn{
+.login{
     width: 100%;
     background: none;
     border: 2px solid rgb(61, 180, 242);
@@ -55,11 +19,4 @@
     font-size: 20px;
     cursor: pointer;
     margin: 12px 0;
-}
-@media screen and (max-width: 360px) {
-  .form-group{
-    width: 100%;
-    height: 100%;
-    margin-top: 100px;
-  }
 }

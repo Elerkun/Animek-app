@@ -19,17 +19,24 @@ export class AnimePageComponent implements OnInit {
   ngOnInit() {
     bodyPages();
     favoritos();
-    this.cargarAnime();
+
+    this.cargarAnime_Manga();
+
 
   }
-  cargarAnime(): void{
+  cargarAnime_Manga(): void{
     this.activatedRoute.params.subscribe(params =>{
       let id = params['id'];
-      if(id){
+      let type = params['type'];
+      if(id && type=='anime'){
         this.animeService.passAnime(id).subscribe(anime => this.data = anime['data'])
+        console.log(type);
+      }
+      if(id && type== 'manga'){
+        this.animeService.passManga(id).subscribe(manga => this.data = manga['data'])
+        console.log(type);
       }
     })
 
   }
-
 }

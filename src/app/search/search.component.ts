@@ -14,26 +14,28 @@ export class SearchComponent implements OnInit {
   data;
   allAnimes;
   categories;
+  allMangas;
+  public cont : number = 0;
 
 
   constructor(private animeService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-     this.cargarCliente();
      bodyPages();
 
   this.animeService.getAnimes().subscribe(animes =>this.data = animes['data']);
   this.animeService.getAllAnimes().subscribe(animes => this.allAnimes = animes['data']);
+  this.animeService.getManga().subscribe(manga => this.allMangas = manga['data']);
+  this.animeService.getCategories(this.cont).subscribe(categories => this.categories = categories['data'])
 
 }
-cargarCliente(): void{
-    this.activatedRoute.params.subscribe(params =>{
-      let pageOffset = params['pageOffset'];
-      this.animeService.getCategories(pageOffset).subscribe(animes => this.categories = animes['data']);
+cargarCategories(pageOffset): void{
+      this.cont = this.cont + pageOffset;
+      this.animeService.getCategories(this.cont).subscribe(categories => this.categories = categories['data']);
 
-    });
-
-  }
-
-
+    }
+descargarCategories(pageOffset): void{
+  this.cont = this.cont + pageOffset;
+  this.animeService.getCategories(this.cont ).subscribe(categories => this.categories = categories['data']);
+   }
 }
