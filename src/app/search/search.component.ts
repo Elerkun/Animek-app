@@ -21,12 +21,11 @@ export class SearchComponent implements OnInit {
   constructor(private animeService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-     bodyPages();
-
-  this.animeService.getAnimes().subscribe(animes =>this.data = animes['data']);
-  this.animeService.getAllAnimes().subscribe(animes => this.allAnimes = animes['data']);
-  this.animeService.getManga().subscribe(manga => this.allMangas = manga['data']);
-  this.animeService.getCategories(this.cont).subscribe(categories => this.categories = categories['data'])
+    bodyPages();
+    this.animeService.getAnimes().subscribe(animes => this.data = animes['data']);
+    this.animeService.getAllAnimes(0).subscribe(animes => this.allAnimes = animes['data']);
+    this.animeService.getManga().subscribe(manga => this.allMangas = manga['data']);
+    this.animeService.getCategories(this.cont).subscribe(categories => this.categories = categories['data'])
 
 }
 cargarCategories(pageOffset): void{
@@ -35,7 +34,15 @@ cargarCategories(pageOffset): void{
 
     }
 descargarCategories(pageOffset): void{
-  this.cont = this.cont + pageOffset;
+  this.cont = this.cont - pageOffset;
   this.animeService.getCategories(this.cont ).subscribe(categories => this.categories = categories['data']);
    }
+cargarAnimes(pageOffset):void{
+  this.cont = this.cont + pageOffset;
+  this.animeService.getAllAnimes(this.cont).subscribe(animes =>this.allAnimes = animes['data']);
+  }
+descargarAnimes(pageOffset):void{
+    this.cont = this.cont - pageOffset;
+    this.animeService.getAllAnimes(this.cont).subscribe(animes =>this.allAnimes = animes['data']);
+    }
 }

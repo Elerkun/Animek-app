@@ -6,20 +6,23 @@
 <img [src]="anime.attributes.posterImage.tiny" class="card-img-top img-responsive  " />
    <div class =" card-body overlay">
       <h2 class ="card-title">{{anime.attributes.canonicalTitle}} </h2>
-
-     </div>
+    </div>
    </div>
 </div>
-
-
-<button class ="mt-5 ml-3 linkAnime" >View More </button>
+<ul class="pagination mt-3" >
+  <li  [ngClass]=" cont==0?'disabled page-item': 'page-item'">
+    <a class="page-link" (click)="descargarAnimes(10)"> &laquo;</a>
+  <li  [ngClass]=" cont==14386?'disabled page-item': 'page-item'">
+    <a class="page-link" (click)="cargarAnimes(10)"> &raquo;</a>
+ </li>
+</ul>
+<h1>Trending Anime</h1>
 <div class="card-group mb-5 ml-1 mr-2 p-2" >
 <div class=" card hovereffect" *ngFor="let anime of data" [routerLink]="['/animemanga-page/' , anime.type,anime.id]">
 <img [src]="anime.attributes.posterImage.tiny" class="card-img-top img-responsive  " />
    <div class =" card-body overlay">
       <h2 class =" card-title ">{{anime.attributes.titles.en}} </h2>
-
-     </div>
+    </div>
    </div>
 </div>
 <h1>Trending Manga</h1>

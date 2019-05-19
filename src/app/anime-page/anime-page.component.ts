@@ -19,10 +19,7 @@ export class AnimePageComponent implements OnInit {
   ngOnInit() {
     bodyPages();
     favoritos();
-
     this.cargarAnime_Manga();
-
-
   }
   cargarAnime_Manga(): void{
     this.activatedRoute.params.subscribe(params =>{
@@ -37,6 +34,5 @@ export class AnimePageComponent implements OnInit {
         console.log(type);
       }
     })
-
   }
 }

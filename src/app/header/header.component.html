@@ -15,8 +15,53 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search"   #text placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit" data-toggle="modal" data-target="#myModal" (click)="searchAnime(text.value);searchManga(text.value)">Search</button>
+      <!-- The Modal Anime -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" *ngFor="let animes of animes" >
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="animes.attributes.posterImage.small" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{animes.attributes.slug}}</h5>
+                  <button [routerLink]="['/animemanga-page/' , animes.type,animes.id]" class="btn btn-primary" data-dismiss="modal">Go</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body" *ngFor="let mangas of mangas" >
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" [src]="mangas.attributes.posterImage.small" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{mangas.attributes.slug}}</h5>
+                  <button [routerLink]="['/animemanga-page/' , mangas.type,mangas.id]" class="btn btn-primary" data-dismiss="modal">Go</button>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <ul class="pagination mt-3" >
+                <li  [ngClass]=" cont==0?'disabled page-item': 'page-item'">
+                  <a class="page-link" (click)="descargarMangas(text.value,10);descargarAnimes(text.value,10)"> &laquo;</a>
+                <li  [ngClass]=" cont==207?'disabled page-item': 'page-item'">
+                  <a class="page-link" (click)="cargarAnimes(text.value,10);cargarMangas(text.value,10)"> &raquo;</a>
+               </li>
+              </ul>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </nav>
