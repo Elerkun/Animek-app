@@ -11,7 +11,8 @@ declare function bodyPages() : any;
   styleUrls: ['./upload-images.component.css']
 })
 export class UploadImagesComponent implements OnInit {
-  private usuario: Usuario = new Usuario();
+  usuario: Usuario = new Usuario();
+
   private errores : string[];
   private fotoselecionada : File;
   progreso: number=0;
@@ -21,7 +22,16 @@ export class UploadImagesComponent implements OnInit {
 
   ngOnInit() {
       bodyPages();
+      this.activatedRoute.params.subscribe(params =>{
+          let id= params['id'];
+         if(id){
+           this.usuarioService.getUsuario_byId(id).subscribe(usuario =>{
+             this.usuario = usuario;
+           })
+         }
+      });
   }
+
   uploadFoto(event){
   this.fotoselecionada = event.target.files[0];
   this.progreso= 0;
@@ -108,10 +118,13 @@ export class UploadImagesComponent implements OnInit {
            });
          });
     }
-   profile(){
+   profile(usuario: Usuario){
      this.activatedRoute.params.subscribe(params => {
         let id= params['id'];
-        this.router.navigate(['/myProfile', id]);
-      });
-   }
+        this.usuario = usuario;
+          this.usuarioService.update(this.usuario).subscribe(usuario =>{
+            this.router.navigate(['/myProfile', id]);
+          });
+        });
+       }
 }

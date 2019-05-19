@@ -25,8 +25,16 @@ export class MyProfileComponent implements OnInit {
   this.activatedRoute.params.subscribe(params => {
     let id= params['id'];
     if(id){
-      this.usuarioService.getClientes_byId(id).subscribe((usuario)=> this.usuario= usuario)
+      this.usuarioService.getUsuario_byId(id).subscribe((usuario)=> this.usuario= usuario)
     }
   })
+ }
+ updateprofile(){
+   this.activatedRoute.params.subscribe(params => {
+     let id= params['id'];
+     if(id){
+       this.router.navigate(['/uploadImage', id]);
+     }
+   });
  }
 }

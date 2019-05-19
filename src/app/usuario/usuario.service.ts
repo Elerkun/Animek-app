@@ -38,7 +38,7 @@ export class UsuarioService {
       })
     );
   }
-  getClientes_byId(id):  Observable<Usuario>{
+  getUsuario_byId(id):  Observable<Usuario>{
     return this.http.get<Usuario>(`${this.urlEnpoint}/${id}`).pipe(catchError(e => {
         console.error(e.error.mensaje);
         this.router.navigate(['/login']);
@@ -81,4 +81,15 @@ export class UsuarioService {
     });
     return this.http.request(req);
    }
+   update(usuario: Usuario): Observable<any>{
+    return this.http.put<any>(`${this.urlEnpoint}/${usuario.id}`,usuario, {headers : this.HttpHeaders}).pipe(catchError(e => {
+      if(e.status==400){//bad request
+         return throwError(e);
+      }
+      console.error(e.error.mensaje)
+      swal.fire(e.error.mensaje, e.error.error,'error');
+      return throwError(e);
+      })
+  );
+}
 }
