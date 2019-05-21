@@ -5,11 +5,11 @@
      <div class="container">
         <div class="row ml-auto">
           <div class="col-9">
-              <h1 class="ak_title-anime ">{{data.attributes.canonicalTitle}}</h1>
-              <p class="ak_desciption-anime ">{{data.attributes.synopsis}}</p>
+              <h1 class="ak_title-anime"  #animeTitle>{{data.attributes.canonicalTitle}}</h1>
+              <span class="ak_desciption-anime"  #animeDescription >{{data.attributes.synopsis}}</span>
           </div>
           <div class="col-3">
-              <img class="img-fluid" alt="ak-img_anime" [src]="data.attributes.posterImage.small" />
+              <img class="img-fluid" alt="ak-img_anime" [src]="data.attributes.posterImage.small"  #animeImage />
           </div>
           <div class="col-6">
               <ul class="ul_section">
@@ -21,7 +21,7 @@
           </div>
           <div class="col mt-4">
               <div class="fav">
-                  <button class="heart" name="button"><i class="far fa-heart"></i></button>
+                  <button class="heart" name="button" (click)="animeFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc )"><i class="far fa-heart"></i></button>
               </div>
                 <div class="dropdown" style="margin-top:10px;">
                    <button class="dropbtn" >Add to List</button>

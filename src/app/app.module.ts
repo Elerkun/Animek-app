@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
-  {path:'animemanga-page/:type/:id', component:AnimePageComponent},
+  {path:'animemanga-page/:type/:userId/:id', component:AnimePageComponent},
   {path:'search', component:SearchComponent},
   {path:'myProfile/:id', component:MyProfileComponent},
   {path:'animesmangasSearch', component:AnimesSearchComponent},
