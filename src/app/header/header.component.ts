@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
       }
   cargarUsuario():void{
       this.activatedRoute.params.subscribe(params =>{
-        let id = params['id'];
+        let id = params['userId'];
         if(id){
           this.usuarioService.getUsuario_byId(id).subscribe(usuario => this.usuario = usuario);
         }

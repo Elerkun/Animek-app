@@ -5,7 +5,8 @@ import {Router,ActivatedRoute} from '@angular/router'; //activatedRoute: sirve p
 import swal from 'sweetalert2';
 
 declare function bodyPages() : any;
-declare function favoritos() : any;
+declare function addFav() : any;
+declare function delFav() : any;
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -18,12 +19,11 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit() {
     bodyPages();
-    favoritos();
     this.cargarCliente_byId();
   }
   public cargarCliente_byId(): void{
   this.activatedRoute.params.subscribe(params => {
-    let id= params['id'];
+    let id= params['userId'];
     if(id){
       this.usuarioService.getUsuario_byId(id).subscribe((usuario)=> this.usuario= usuario)
     }
@@ -31,7 +31,7 @@ export class MyProfileComponent implements OnInit {
  }
  updateprofile(){
    this.activatedRoute.params.subscribe(params => {
-     let id= params['id'];
+     let id= params['userId'];
      if(id){
        this.router.navigate(['/uploadImage', id]);
      }

@@ -1,3 +1,4 @@
+import { Anime } from 'src/app/anime-page/anime';
 export class Usuario {
   id: number;
   nombre: string ;
@@ -6,5 +7,7 @@ export class Usuario {
   email: string;
   foto : string;
   banner: string;
+  anime: Anime[];
+
 
 }

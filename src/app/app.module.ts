@@ -22,9 +22,9 @@ const routes: Routes = [
   {path:'index', component:IndexComponent},
   {path:'login', component:LoginComponent},
   {path:'signin', component:SigninComponent},
-  {path:'animemanga-page/:type/:userId/:id', component:AnimePageComponent},
+  {path:'animemanga-page/:type/:id/:userId', component:AnimePageComponent},
   {path:'search', component:SearchComponent},
-  {path:'myProfile/:id', component:MyProfileComponent},
+  {path:'myProfile/:userId', component:MyProfileComponent},
   {path:'animesmangasSearch', component:AnimesSearchComponent},
   {path:'uploadImage/:id', component:UploadImagesComponent},
 ]

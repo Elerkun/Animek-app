@@ -3,6 +3,7 @@ import {HttpClient,HttpHeaders, HttpRequest,HttpEvent} from '@angular/common/htt
 import {/*of,*/Observable, throwError} from 'rxjs';
 import {map, catchError,tap} from 'rxjs/operators';
 import{Usuario} from './usuario';
+import { Anime } from 'src/app/anime-page/anime';
 import swal from 'sweetalert2';
 import {Router} from '@angular/router';
 
@@ -12,7 +13,7 @@ import {Router} from '@angular/router';
 export class UsuarioService {
   private urlEnpoint: string ="http://localhost:8080/api/usuarios"
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'})
-
+  anime: Anime;
   constructor(private http: HttpClient,private router: Router) { }
 
   create(usuario:Usuario): Observable<Usuario> {

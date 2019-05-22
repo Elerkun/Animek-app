@@ -6,24 +6,11 @@ function bodyPages(){
   $(".foot").css({ "position" : "position-relative"});
   $("body").fadeIn("slow");
 }
-function favoritos(){
-  $(".heart").click(function(){
-      if($(this).attr("style") == "background-color: red;"){
-        $(this).css({"background-color":" #ff00b6"});
-        $(this).mouseenter(function(){
-            $(this).css({"background-color":"#7f8fad"});
-        });
-        $(this).mouseout(function(){
-            $(this).css({"background-color":"#ff00b6"});
-        });
-      }else{
-        $(this).css({"background-color":"red"});
-        $(this).mouseout(function(){
-            $(this).css({"background-color":"red"});
-        });
-        $(this).mouseenter(function(){
-            $(this).css({"background-color":"red"});
-        });
-      }
-  });
-}
+function addFav(){
+  $(".heart").css({'background-color': 'red'});
+
+ }
+function delFav(){
+   $(".heart").css({'background-color': '#ff00b6'});
+
+ }

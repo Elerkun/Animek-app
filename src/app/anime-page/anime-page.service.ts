@@ -8,14 +8,15 @@ import swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class AnimePageService {
-  private addAnimeFavorite: String = "http://localhost:8080/api/usuario/anime/";
+  private addAnimeFavorite: String = "http://localhost:8080/api/animes/";
+  private getAnimeFavorite: String = "http://localhost:8080/api/anime";
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'});
   anime: Anime = new Anime;
   constructor(private http: HttpClient) { }
 
   addAnime(anime: Anime,id): Observable<any> {
-    let animeArray = [{id:id,title: anime.title, description: anime.description, image:anime.image}];
-    return this.http.put(`${this.addAnimeFavorite}/${id}`,JSON.stringify(animeArray), {headers : this.HttpHeaders}).pipe(
+
+    return this.http.post(`${this.addAnimeFavorite}/${id}`,JSON.stringify(anime), {headers : this.HttpHeaders}).pipe(
       map((response:any) => response.anime as Anime),
       catchError(e => {
         if(e.status==400){//bad request
@@ -27,4 +28,18 @@ export class AnimePageService {
       })
     );
    }
+   getAnime(usuario_id,anime_title): Observable<any> {
+
+     return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}`).pipe(
+       map((response:any) => response.anime as Anime),
+       catchError(e => {
+         if(e.status==400){//bad request
+            return throwError(e);
+         }
+         console.error(e.error.mensaje)
+         swal.fire(e.error.mensaje, e.error.error,'error');
+         return throwError(e);
+       })
+     );
+    }
 }
