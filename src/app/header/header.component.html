@@ -43,7 +43,7 @@
                 <img class="card-img-top" [src]="mangas.attributes.posterImage.small" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{mangas.attributes.slug}}</h5>
-                  <button [routerLink]="['/animemanga-page/' , mangas.type,mangas.id, usuario.id]" (click)="animePage()" class="btn btn-primary" data-dismiss="modal">Go</button>
+                  <button [routerLink]="['/animemanga-page/' , mangas.type,mangas.id, usuario.id]"  class="btn btn-primary" data-dismiss="modal">Go</button>
                 </div>
               </div>
             </div>

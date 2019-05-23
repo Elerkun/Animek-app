@@ -7,10 +7,12 @@ function bodyPages(){
   $("body").fadeIn("slow");
 }
 function addFav(){
-  $(".heart").css({'background-color': 'red'});
-
+  $(".addFav").prop('disabled', true);
+   $(".delFav").prop('disabled', false)
+  $(".delFav").css({'cursor': 'ponteir'});
  }
 function delFav(){
-   $(".heart").css({'background-color': '#ff00b6'});
-
+   $(".delFav").prop('disabled', true)
+   $(".addFav").prop('disabled', false);
+   $(".addFav").css({'cursor': 'ponteir'});
  }

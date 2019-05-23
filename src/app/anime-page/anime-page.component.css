@@ -40,58 +40,6 @@ section.banner {
 .col{
   flex-grow: 0;
 }
-.dropdown{
-  width: 100px;
-}
-.dropdown .dropbtn{
-  border: none;
-  padding: 8px 16px;
-  background-color:  rgb(61, 180, 242);
-  color: white;
-  transition: .3s;
-  border-radius: 3px;
-  width: 150px;
-}
-.dropdown button:hover{
-  background-color: #7f8fad;
-  margin-top: -50;
-}
-.fav .heart{
-  border: none;
-  padding: 8px 16px;
-  background-color:#ff00b6;
-  color: white;
-  transition: .3s;
-  border-radius: 3px;
-}
-.fav .heart:hover{
-  background-color: #7f8fad;
-}
-.dropdown #myDropdown{
-  color: rgb(61, 180, 242);
-  box-shadow: 2px 4px 8px rgb(0, 0, 0, 0.2);
-  background: white;
-  z-index: 1;
-  visibility: hidden;
-  transition: .3s;
-  opacity: 0;
-  width: 150px;
-}
-.dropdown:hover #myDropdown {
-  visibility: visible;
-  opacity: 1;
-  position: relative;
-}
-#myDropdown a{
-  display: block;
-  text-decoration: none;
-  padding: 8px;
-  color: #7f8fad;
-}
-#myDropdown a:hover{
-  background-color:  rgb(61, 180, 242);
-  color: white;
-}
 .ul_section {
   list-style-type: none;
   overflow: hidden;

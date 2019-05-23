@@ -28,6 +28,20 @@ export class AnimePageService {
       })
     );
    }
+   delAnime(usuario_id,anime_title): Observable<any> {
+
+     return this.http.delete(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}`, {headers : this.HttpHeaders}).pipe(
+       map((response:any) => response.anime as Anime),
+       catchError(e => {
+         if(e.status==400){//bad request
+            return throwError(e);
+         }
+         console.error(e.error.mensaje)
+         swal.fire(e.error.mensaje, e.error.error,'error');
+         return throwError(e);
+       })
+     );
+    }
    getAnime(usuario_id,anime_title): Observable<any> {
 
      return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}`).pipe(
@@ -36,8 +50,6 @@ export class AnimePageService {
          if(e.status==400){//bad request
             return throwError(e);
          }
-         console.error(e.error.mensaje)
-         swal.fire(e.error.mensaje, e.error.error,'error');
          return throwError(e);
        })
      );

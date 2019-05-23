@@ -21,16 +21,9 @@
           </div>
           <div class="col mt-4">
               <div class="fav">
-                  <button class="heart" name="button" (click)="animeFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc )"><i class="far fa-heart"></i></button>
+                  <button class="btn btn-primary addFav" name="button" (click)="animeFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)">Add to Fav</button>
+                  <button class="btn btn-danger mt-3 delFav" name="button" (click)="deleteFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)" disabled>Delete from fav</button>
               </div>
-                <div class="dropdown" style="margin-top:10px;">
-                   <button class="dropbtn" >Add to List</button>
-                      <div  id="myDropdown" class="dropdown-content">
-                        <a href="#home">Plan to watch</a>
-                        <a href="#about">Drop</a>
-                        <a href="#contact">Watching</a>
-                      </div>
-                </div>
         </div>
       </div>
     </div>
