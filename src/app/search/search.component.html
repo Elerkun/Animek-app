@@ -2,7 +2,7 @@
 
 <h1>All Anime</h1>
 <div class="card-group mb-5 ml-1 mr-2 p-2" >
-<div class=" card hovereffect" *ngFor="let anime of allAnimes" [routerLink]="['/animemanga-page/' , anime.type,anime.id]">
+<div class=" card hovereffect" *ngFor="let anime of allAnimes"  [routerLink]="['/animemanga-page/' , anime.type,anime.id, this.usuario.id]">
 <img [src]="anime.attributes.posterImage.tiny" class="card-img-top img-responsive  " />
    <div class =" card-body overlay">
       <h2 class ="card-title">{{anime.attributes.canonicalTitle}} </h2>
@@ -18,7 +18,7 @@
 </ul>
 <h1>Trending Anime</h1>
 <div class="card-group mb-5 ml-1 mr-2 p-2" >
-<div class=" card hovereffect" *ngFor="let anime of data" [routerLink]="['/animemanga-page/' , anime.type,anime.id]">
+<div class=" card hovereffect" *ngFor="let anime of data" [routerLink]="['/animemanga-page/' , anime.type,anime.id,usuario.id]">
 <img [src]="anime.attributes.posterImage.tiny" class="card-img-top img-responsive  " />
    <div class =" card-body overlay">
       <h2 class =" card-title ">{{anime.attributes.titles.en}} </h2>
@@ -27,7 +27,7 @@
 </div>
 <h1>Trending Manga</h1>
 <div class="card-group mb-5 ml-1 mr-2 p-2" >
-<div class=" card hovereffect" *ngFor="let manga of allMangas" [routerLink]="['/animemanga-page/' , manga.type,manga.id]">
+<div class=" card hovereffect" *ngFor="let manga of allMangas" [routerLink]="['/animemanga-page/' , manga.type,manga.id,usuario.id]">
 <img [src]="manga.attributes.posterImage.tiny" class="card-img-top img-responsive"  />
    <div class =" card-body overlay">
       <h2 class =" card-title ">{{manga.attributes.titles.en}} </h2>
@@ -36,7 +36,7 @@
    </div>
 </div>
 <!-- Button to Open the Modal -->
-<button type="button" (click)="cargarCategories(0)" class="mt-5 ml-3 mb-3 linkAnime" data-toggle="modal" data-target="#myModal">
+<button type="button" class="mt-5 ml-3 mb-3 linkAnime" data-toggle="modal" data-target="#myModal">
   Open modal
 </button>
 

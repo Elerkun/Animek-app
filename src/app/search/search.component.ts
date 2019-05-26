@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Anime } from './anime';
 import {SearchService} from './search.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import {Usuario} from 'src/app/usuario/usuario'
+import {UsuarioService} from 'src/app/usuario/usuario.service'
 declare function bodyPages() : any;
 
 @Component({
@@ -16,9 +18,10 @@ export class SearchComponent implements OnInit {
   categories;
   allMangas;
   public cont : number = 0;
+  public usuario: Usuario = new Usuario;
 
 
-  constructor(private animeService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private animeService: SearchService, private router: Router, private activatedRoute: ActivatedRoute,private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     bodyPages();
@@ -26,6 +29,7 @@ export class SearchComponent implements OnInit {
     this.animeService.getAllAnimes(0).subscribe(animes => this.allAnimes = animes['data']);
     this.animeService.getManga().subscribe(manga => this.allMangas = manga['data']);
     this.animeService.getCategories(this.cont).subscribe(categories => this.categories = categories['data'])
+    this.cargarUsuario();
 
 }
 cargarCategories(pageOffset): void{
@@ -45,4 +49,12 @@ descargarAnimes(pageOffset):void{
     this.cont = this.cont - pageOffset;
     this.animeService.getAllAnimes(this.cont).subscribe(animes =>this.allAnimes = animes['data']);
     }
+    cargarUsuario():void{
+        this.activatedRoute.params.subscribe(params =>{
+          let id = params['userId'];
+          if(id){
+            this.usuarioService.getUsuario_byId(id).subscribe(usuario => this.usuario = usuario);
+          }
+        });
+      }
 }

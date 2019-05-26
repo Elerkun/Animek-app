@@ -23,8 +23,60 @@
               <div class="fav">
                   <button class="btn btn-primary addFav" name="button" (click)="animeFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)">Add to Fav</button>
                   <button class="btn btn-danger mt-3 delFav" name="button" (click)="deleteFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)" disabled>Delete from fav</button>
+                  <button type="button" class="btn btn-outline-success mt-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Leave a comment</button>
               </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Comment {{data.attributes.canonicalTitle}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Image:</label>
+            <div class="container mt-5">
+              <div class="row">
+                 <div class="col-sm">
+                   <div class="input-group mb-3 bg-white mb-3">
+                     <div class="input-group-prepend">
+                       <button (click) ="subirFoto(1)" [disabled] ="!fotoselecionada" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Subir</button>
+                     </div>
+                     <div class="custom-file bg-dark">
+                       <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" />
+                     </div>
+                   </div>
+                   <div class="progress" *ngIf="progreso > 0">
+                     <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso + '%'}" attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
+                       {{progreso}}%
+                     </div>
+                   </div>
+                   <div class="col-sm mt-5">
+                     <img  *ngIf="comment?.foto"src="http://localhost:8080/api/comentariouploads/img/{{comment.foto}}" alt="{{comment.foto}}" class ="rounded" width="300" height="250">
+                   </div>
+                   <button (click) ="deleteFoto()" [disabled] ="!fotoselecionada" class="btn btn-danger mt-5" type="button" id="inputGroupFileAddon03">Eliminar</button>
+                 </div>
+               </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control"  #texto id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click) ="subirComentario(animeTitle.innerHTML,texto.value)">Send message</button>
       </div>
     </div>
   </div>

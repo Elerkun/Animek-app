@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { Anime } from './anime';
 import {/*of,*/Observable,throwError} from 'rxjs'; //IMPORTANT: Es la clase que permite transformar todas los flujos de datos para que se puedan manejar
 import {map, catchError,tap} from 'rxjs/operators';
-import {HttpClient,HttpHeaders, HttpRequest,HttpEvent} from '@angular/common/http'; //IMPORTANT: Crea la conexion Http para que la creacion de clientes sea dinámica
+import {HttpClient,HttpHeaders, HttpRequest,HttpEvent,HttpParams} from '@angular/common/http'; //IMPORTANT: Crea la conexion Http para que la creacion de clientes sea dinámica
 import swal from 'sweetalert2';
+import {Comment} from './comment'
 @Injectable({
   providedIn: 'root'
 })
 export class AnimePageService {
   private addAnimeFavorite: String = "http://localhost:8080/api/animes/";
   private getAnimeFavorite: String = "http://localhost:8080/api/anime";
+  private urlEnpoint: String = "http://localhost:8080/api/comentarios";
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'});
   anime: Anime = new Anime;
+  mensaje: String;
   constructor(private http: HttpClient) { }
 
   addAnime(anime: Anime,id): Observable<any> {
@@ -28,9 +31,9 @@ export class AnimePageService {
       })
     );
    }
-   delAnime(usuario_id,anime_title): Observable<any> {
+   delAnime(usuario_id,anime_title,type): Observable<any> {
 
-     return this.http.delete(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}`, {headers : this.HttpHeaders}).pipe(
+     return this.http.delete(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}/${type}`, {headers : this.HttpHeaders}).pipe(
        map((response:any) => response.anime as Anime),
        catchError(e => {
          if(e.status==400){//bad request
@@ -42,9 +45,9 @@ export class AnimePageService {
        })
      );
     }
-   getAnime(usuario_id,anime_title): Observable<any> {
+   getAnime(usuario_id,anime_title,type): Observable<any> {
 
-     return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}`).pipe(
+     return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}/${type}`).pipe(
        map((response:any) => response.anime as Anime),
        catchError(e => {
          if(e.status==400){//bad request
@@ -54,4 +57,14 @@ export class AnimePageService {
        })
      );
     }
+    updateFoto(anime_title,type,usuario_id,archivo:File,texto): Observable<HttpEvent<{}>>{
+      let formData = new FormData();
+      formData.append("archivo",archivo);
+      const req = new HttpRequest('POST',`${this.urlEnpoint}/${usuario_id}/${anime_title}/${type}/${texto}`, formData,{
+        reportProgress: true
+      });
+      return this.http.request(req);
+    }
+
+
 }

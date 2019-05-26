@@ -2,8 +2,12 @@ import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import {SearchService} from 'src/app/search/search.service';
 import {AnimePageService} from './anime-page.service';
 import {Anime} from './anime'
+import {Comment} from './comment'
 import {Router,ActivatedRoute} from '@angular/router'; //activatedRoute: sirve para encontrar el 'id del cliente', que de forma automatica asigna los datos al objeto 'cliente'
 import swal from 'sweetalert2';
+import {UsuarioService} from 'src/app/usuario/usuario.service';
+import{Usuario} from 'src/app/usuario/usuario';
+import {HttpEventType} from '@angular/common/http';
 declare function bodyPages() : any;
 declare function addFav() : any;
 declare function delFav() : any;
@@ -17,10 +21,15 @@ export class AnimePageComponent implements OnInit {
    @ViewChild('animeTitle') myTitle: ElementRef;
    animes: Anime = new Anime;
    data;
+   usuario: Usuario = new Usuario;
    public title: String;
    private errores : string[];
    private delete : number = 0;
-  constructor(private animeService: SearchService,  private animePageService: AnimePageService, private activatedRoute: ActivatedRoute,private router: Router) { }
+   private fotoselecionada : File;
+   progreso: number=0;
+   comment: Comment = new Comment;
+   anime_title: string ="";
+  constructor(private usuarioService: UsuarioService, private animeService: SearchService,  private animePageService: AnimePageService, private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
 
@@ -35,10 +44,9 @@ export class AnimePageComponent implements OnInit {
           this.animeService.passAnime(id).subscribe(anime => this.data = anime['data'])
           setTimeout(()=>{
                 this.loadFav();
+
               },500);
           console.log(type);
-
-
         }
         if(id && type== 'manga'){
           this.animeService.passManga(id).subscribe(manga => this.data = manga['data'])
@@ -46,20 +54,19 @@ export class AnimePageComponent implements OnInit {
                 this.loadFav();
               },500);
           console.log(type);
-
         }
-
       })
-
     }
   animeFavorite(title,description,image):void{
     this.activatedRoute.params.subscribe(params =>{
       let id = params['userId'];
+      let type= params['type'];
       if(id){
         this.animes.image = image;
         this.animes.title= title;
         this.animes.description = description;
         this.animes.id= this.data.id;
+        this.animes.type = type;
         this.animePageService.addAnime(this.animes,id).subscribe(anime => {
           addFav();
         });
@@ -69,6 +76,7 @@ export class AnimePageComponent implements OnInit {
    });
  }
  deleteFavorite(title,description,image):void{
+
    swal.fire({
      title: 'Are you sure?',
      text: "You won't be able to revert this!",
@@ -80,8 +88,9 @@ export class AnimePageComponent implements OnInit {
    }).then((result) => {
      if (result.value) {
        this.activatedRoute.params.subscribe(params =>{
-           let userId = params['userId'];
-         this.animePageService.delAnime(userId,this.myTitle.nativeElement.innerHTML).subscribe(anime => {
+        let userId = params['userId'];
+         let type = params['type'];
+         this.animePageService.delAnime(userId,this.myTitle.nativeElement.innerHTML,type).subscribe(anime => {
          delFav();
          this.delete=1;
           });
@@ -94,15 +103,63 @@ export class AnimePageComponent implements OnInit {
     this.activatedRoute.params.subscribe(params =>{
       let userId = params['userId'];
       let id = params['id'];
+      let type = params['type'];
       if(id){
         delFav();
-        this.animePageService.getAnime(userId,this.myTitle.nativeElement.innerHTML).subscribe(anime =>{
+        this.animePageService.getAnime(userId,this.myTitle.nativeElement.innerHTML,type).subscribe(anime =>{
           addFav();
         });
 
       }else{
         delFav();
       }
+    });
+  }
+  uploadFoto(event){
+  this.fotoselecionada = event.target.files[0];
+  this.progreso= 0;
+  console.log(this.fotoselecionada);
+  if(this.fotoselecionada.type.indexOf('image')<0){
+    swal.fire('Error', 'El archivo debe ser una imagen','error');
+         this.fotoselecionada = null;
+
+    }
+  }
+
+  subirFoto(num){
+    if(num==1){
+        swal.fire('Picture Add','The picture was add correctly!','success');
+      }
+  }
+  deleteFoto(){
+     this.activatedRoute.params.subscribe(params => {
+       let id= params['id'];
+       this.usuarioService.DeleteFoto(id)
+         .subscribe(event => {
+           if(event.type === HttpEventType.UploadProgress){
+             this.progreso = Math.round((event.loaded/event.total)*100);
+           }else if(event.type === HttpEventType.Response){
+             let response: any = event.body;
+             this.comment = response.comment as Comment;
+             swal.fire('La foto se ha borrado correctamente!', response.mensaje,'success');
+            }
+          });
+        });
+   }
+   subirComentario(anime_title,texto):void{
+     this.activatedRoute.params.subscribe(params => {
+       let userId= params['userId'];
+       let type = params['type'];
+       this.animePageService.updateFoto(anime_title,type,userId,this.fotoselecionada,texto)
+         .subscribe(event => {
+           if(event.type === HttpEventType.UploadProgress){
+             this.progreso = Math.round((event.loaded/event.total)*100);
+           }else if(event.type === HttpEventType.Response){
+             let response: any = event.body;
+             this.comment = response.comment as Comment;
+             swal.fire('The comment was Add correctly!', response.mensaje,'success');
+            }
+          });
     });
   }
 }
