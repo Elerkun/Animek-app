@@ -9,22 +9,20 @@
           <div class="col-3">
             <img src="http://localhost:8080/api/uploads/img/{{usuario.foto}}"   alt="img profile" width="200" height="300">
           </div>
-          <div class="col">
-            <div class="row h-50">
-              <div class="col">
+            <div class="row">
+              <div class="col-sm-6 col-xs-12">
                 <p class="name" > {{usuario.nombre}}</p>
               </div>
-              <div class="col">
+              <div class="col-sm-6 col-xs-12">
                   <div class="fav">
                       <button class="btn btn-primary" (click)="updateprofile()">Update</button>
-                      <button class="btn btn-success ml-3" [routerLink]="['/search/',usuario.id]">Search Animes-Mangas</button>
+                      <button class="btn btn-success" [routerLink]="['/search/',usuario.id]">Search Animes-Mangas</button>
                   </div>
               </div>
-            </div>
-          <div class="col">
+
+          <div class="col-sm-6 col-xs-12">
                 <ul class="list-inline ul_section">
                     <li class="list-inline-item"><a class="active" href="#home">Comments</a></li>
-                    <li class="list-inline-item"><a href="#news">Follows</a></li>
                     <li class="list-inline-item"><a href="#contact">Favorites Animes</a></li>
                 </ul>
           </div>
@@ -35,44 +33,16 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col mt-5">
-      <div class="card ml-5" style="width: 18rem;">
-        <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+    <div class="col-sm-6 mt-5 mb-5" *ngFor="let com of comment">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top img-responsive" src="http://localhost:8080/api/comentariouploads/img/{{com.foto}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Community Feed </h5>
-          <p class="card-text ">What a Anime, one of the top of the season!</p>
+          <h5 class="card-title">{{com.anime_name}}  </h5>
+          <p class="card-text ">{{com.texto}}</p>
         </div>
       </div>
       </div>
-      <div class="col mt-5">
-        <div class="card ml-5" style="width: 18rem;">
-          <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Community Feed </h5>
-            <p class="card-text ">What a Anime, one of the top of the season!</p>
-         </div>
-        </div>
-        </div>
-        <div class="col mt-5">
-          <div class="card ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Community Feed </h5>
-              <p class="card-text ">What a Anime, one of the top of the season!</p>
-            </div>
-         </div>
-        </div>
-        <div class="col mt-5">
-          <div class="card ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Community Feed </h5>
-              <p class="card-text ">What a Anime, one of the top of the season!</p>
-            </div>
-         </div>
-        </div>
-   </div>
   </div>
-
+</div>
 
 <app-footer></app-footer>

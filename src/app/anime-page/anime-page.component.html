@@ -4,26 +4,24 @@
   <div class="card-body title">
      <div class="container">
         <div class="row ml-auto">
-          <div class="col-9">
+          <div class="col-sm-6">
               <h1 class="ak_title-anime" id='title'  #animeTitle>{{data.attributes.canonicalTitle}}</h1>
               <span class="ak_desciption-anime"  #animeDescription >{{data.attributes.synopsis}}</span>
           </div>
-          <div class="col-3">
-              <img class="img-fluid" alt="ak-img_anime" [src]="data.attributes.posterImage.small"  #animeImage />
+          <div class="col-sm-6">
+              <img class="img-thumbnail" alt="ak-img_anime" [src]="data.attributes.posterImage.small"  #animeImage />
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
               <ul class="ul_section">
                   <li><a class="active" href="#home">Comments</a></li>
                   <li><a href="#news">Episode</a></li>
-                  <li><a href="#contact">Characters</a></li>
-                  <li><a href="#about">Staff</a></li>
               </ul>
           </div>
-          <div class="col mt-4">
+          <div class="col-sm-6 mt-4">
               <div class="fav">
                   <button class="btn btn-primary addFav" name="button" (click)="animeFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)">Add to Fav</button>
-                  <button class="btn btn-danger mt-3 delFav" name="button" (click)="deleteFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)" disabled>Delete from fav</button>
-                  <button type="button" class="btn btn-outline-success mt-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Leave a comment</button>
+                  <button class="btn btn-danger delFav" name="button" (click)="deleteFavorite(animeTitle.innerHTML, animeDescription.innerHTML, animeImage.currentSrc)" disabled>Delete from fav</button>
+                  <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Leave a comment</button>
               </div>
         </div>
       </div>
@@ -31,7 +29,7 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" #exampleModal id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -76,7 +74,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click) ="subirComentario(animeTitle.innerHTML,texto.value)">Send message</button>
+        <button type="button" class="btn btn-primary" (click) ="subirComentario(animeTitle.innerHTML,texto.value,1)">Send message</button>
       </div>
     </div>
   </div>
@@ -91,66 +89,35 @@
       <th scope="col" >Status</th>
     </tr>
     <tr>
-      <td>TV</td>
-      <td>22</td>
-      <td>24 min</td>
-      <td>Finished</td>
+      <td>{{data.attributes.subtype}}</td>
+      <td>{{data.attributes.episodeCount}}</td>
+      <td>{{data.attributes.episodeLength}} min</td>
+      <td>{{data.attributes.status}}</td>
     </tr>
     <tr>
       <th scope="col" >Start Date</th>
       <th scope="col" >End Date</th>
-      <th scope="col" >Season</th>
-      <th scope="col" >Genres</th>
 
     </tr>
     <tr>
-      <td>Apr 8, 2017</td>
-      <td>Sep 16, 2017</td>
-      <td>Spring 2017</td>
-      <td>Action, Drama, Mecha, Mahou Shoujo, Sci-Fi</td>
+      <td>{{data.attributes.startDate}}</td>
+      <td>{{data.attributes.endDate}}</td>
     </tr>
   </tbody>
 </table>
 <div class="container">
   <div class="row">
-    <div class="col mt-5">
-      <div class="card ml-5" style="width: 18rem;">
-        <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
+    <div class="col-sm-6 mt-5 mb-5" *ngFor="let com of comment">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top img-responsive" src="http://localhost:8080/api/comentariouploads/img/{{com.foto}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Community Feed </h5>
-          <p class="card-text ">What a Anime, one of the top of the season!</p>
+          <h5 class="card-title">{{com.usuario.nombre}}  </h5>
+          <p class="card-text ">{{com.texto}}</p>
         </div>
       </div>
       </div>
-      <div class="col mt-5">
-        <div class="card ml-5" style="width: 18rem;">
-          <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Community Feed </h5>
-            <p class="card-text ">What a Anime, one of the top of the season!</p>
-         </div>
-        </div>
-        </div>
-        <div class="col mt-5">
-          <div class="card ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Community Feed </h5>
-              <p class="card-text ">What a Anime, one of the top of the season!</p>
-            </div>
-         </div>
-        </div>
-        <div class="col mt-5">
-          <div class="card ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="assets/images/recreators.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Community Feed </h5>
-              <p class="card-text ">What a Anime, one of the top of the season!</p>
-            </div>
-         </div>
-        </div>
-   </div>
   </div>
+</div>
 
 
 <app-footer></app-footer>

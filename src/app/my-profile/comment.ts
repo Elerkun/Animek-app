@@ -1,5 +1,5 @@
 import { Usuario } from 'src/app/usuario/usuario';
-import { Anime } from './Anime';
+import { Anime } from 'src/app/anime-page/anime';
 export class Comment{
    id:number;
    foto:string;

@@ -12,9 +12,11 @@ export class AnimePageService {
   private addAnimeFavorite: String = "http://localhost:8080/api/animes/";
   private getAnimeFavorite: String = "http://localhost:8080/api/anime";
   private urlEnpoint: String = "http://localhost:8080/api/comentarios";
+  private getCommentsAnime: String ="http://localhost:8080/api/comentarios"
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'});
   anime: Anime = new Anime;
   mensaje: String;
+  comment: Comment = new Comment;
   constructor(private http: HttpClient) { }
 
   addAnime(anime: Anime,id): Observable<any> {
@@ -46,8 +48,7 @@ export class AnimePageService {
      );
     }
    getAnime(usuario_id,anime_title,type): Observable<any> {
-
-     return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}/${type}`).pipe(
+      return this.http.get(`${this.getAnimeFavorite}/${usuario_id}/${anime_title}/${type}`).pipe(
        map((response:any) => response.anime as Anime),
        catchError(e => {
          if(e.status==400){//bad request
@@ -65,6 +66,9 @@ export class AnimePageService {
       });
       return this.http.request(req);
     }
-
+    getComments(type,anime_title): Observable<any> {
+      return this.http.get(`${this.getCommentsAnime}/${type}/${anime_title}`).pipe(
+        map( response => response as Comment[]))
+      }
 
 }

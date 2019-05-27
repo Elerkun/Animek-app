@@ -1,4 +1,5 @@
 import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import {SearchService} from 'src/app/search/search.service';
 import {AnimePageService} from './anime-page.service';
 import {Anime} from './anime'
@@ -19,6 +20,7 @@ declare function delFav() : any;
 export class AnimePageComponent implements OnInit {
 
    @ViewChild('animeTitle') myTitle: ElementRef;
+   @ViewChild('exampleModal') modal:  ModalDirective;
    animes: Anime = new Anime;
    data;
    usuario: Usuario = new Usuario;
@@ -35,6 +37,8 @@ export class AnimePageComponent implements OnInit {
 
     bodyPages();
     this.cargarAnime_Manga();
+
+
   }
   cargarAnime_Manga(): void{
       this.activatedRoute.params.subscribe(params =>{
@@ -44,6 +48,7 @@ export class AnimePageComponent implements OnInit {
           this.animeService.passAnime(id).subscribe(anime => this.data = anime['data'])
           setTimeout(()=>{
                 this.loadFav();
+                this.comments();
 
               },500);
           console.log(type);
@@ -52,6 +57,7 @@ export class AnimePageComponent implements OnInit {
           this.animeService.passManga(id).subscribe(manga => this.data = manga['data'])
           setTimeout(()=>{
                 this.loadFav();
+                this.comments();
               },500);
           console.log(type);
         }
@@ -144,12 +150,16 @@ export class AnimePageComponent implements OnInit {
              swal.fire('La foto se ha borrado correctamente!', response.mensaje,'success');
             }
           });
+
         });
    }
-   subirComentario(anime_title,texto):void{
+   subirComentario(anime_title,texto,number):void{
+     let userId;
+     let type;
      this.activatedRoute.params.subscribe(params => {
-       let userId= params['userId'];
-       let type = params['type'];
+       userId= params['userId'];
+       type = params['type'];
+       });
        this.animePageService.updateFoto(anime_title,type,userId,this.fotoselecionada,texto)
          .subscribe(event => {
            if(event.type === HttpEventType.UploadProgress){
@@ -158,8 +168,14 @@ export class AnimePageComponent implements OnInit {
              let response: any = event.body;
              this.comment = response.comment as Comment;
              swal.fire('The comment was Add correctly!', response.mensaje,'success');
-            }
+           }
           });
-    });
-  }
+        }
+    comments():void{
+      let type;
+      this.activatedRoute.params.subscribe(params => {
+        type = params['type'];
+      });
+      this.animePageService.getComments(type,this.myTitle.nativeElement.innerHTML).subscribe(comment => this.comment = comment);
+    }
 }
