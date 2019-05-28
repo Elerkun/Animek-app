@@ -53,7 +53,7 @@
 
       <!-- Modal body -->
       <div class="modal-body" *ngFor="let cate of categories" >
-        {{cate.attributes.slug}}
+        <span data-dismiss="modal" [routerLink]="['/categoriesSearch/' , cate.attributes.slug,usuario.id]"> {{cate.attributes.slug}}</span>
       </div>
 
       <!-- Modal footer -->

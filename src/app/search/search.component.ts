@@ -49,12 +49,12 @@ descargarAnimes(pageOffset):void{
     this.cont = this.cont - pageOffset;
     this.animeService.getAllAnimes(this.cont).subscribe(animes =>this.allAnimes = animes['data']);
     }
-    cargarUsuario():void{
-        this.activatedRoute.params.subscribe(params =>{
-          let id = params['userId'];
-          if(id){
-            this.usuarioService.getUsuario_byId(id).subscribe(usuario => this.usuario = usuario);
-          }
-        });
+cargarUsuario():void{
+    this.activatedRoute.params.subscribe(params =>{
+      let id = params['userId'];
+      if(id){
+        this.usuarioService.getUsuario_byId(id).subscribe(usuario => this.usuario = usuario);
       }
+    });
+  }
 }

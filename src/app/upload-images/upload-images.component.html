@@ -1,68 +1,55 @@
 <app-header></app-header>
-<div class="uploadCard">
-<div class ="card uploadForm ">
- <div class ="card-header">{{titulo_foto}}</div>
+<div class ="card uploadForm">
    <div class="card-body">
-     <ul *ngIf="usuario" class="list-group text-dark">
-       <input type="text" name=""  [(ngModel)]="usuario.nombre" name ="nombre"   #nombre="ngModel" value="{{usuario.nombre}}" class="list-group-item">
-       <input type="text" name="" [(ngModel)]="usuario.pass" name ="pass"   #pass="ngModel" value="{{usuario.pass}}" class="list-group-item">
-       <input type="text" name="" [(ngModel)]="usuario.email" name ="email"   #email="ngModel" value="{{usuario.email}}" class="list-group-item">
-     </ul>
-    <div class="container mt-5">
+      <div class ="card-header">{{titulo_foto}}</div>
+      <ul *ngIf="usuario" class="list-group text-dark mb-1 col-sm-6">
+        <input type="text" name=""  [(ngModel)]="usuario.nombre" name ="nombre"   #nombre="ngModel" value="{{usuario.nombre}}" class="list-group-item">
+        <input type="text" name="" [(ngModel)]="usuario.pass" name ="pass"   #pass="ngModel" value="{{usuario.pass}}" class="list-group-item">
+        <input type="text" name="" [(ngModel)]="usuario.email" name ="email"   #email="ngModel" value="{{usuario.email}}" class="list-group-item">
+      </ul>
       <div class="row">
-         <div class="col-sm">
-           <div class="input-group mb-3 bg-white mb-3">
-             <div class="input-group-prepend">
-               <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Subir</button>
-             </div>
-             <div class="custom-file">
-               <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-               <label class="custom-file-label text-dark" for="inputGroupFile03">Choose file</label>
-             </div>
-           </div>
+         <div class="col-sm-6">
+           <div class="custom-file mb-3">
+              <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-success" type="button" id="inputGroupFileAddon03">Subir</button>
+              <input (change)="uploadFoto($event)" type="file" class="custom-file-input bg-white" id="customFile">
+              <label class="custom-file-label text-white" for="customFile">Choose file</label>
+            </div>
+
            <div class="progress" *ngIf="progreso > 0">
              <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso + '%'}" attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
                {{progreso}}%
              </div>
            </div>
-           <div class="col-sm mt-5">
-             <img  *ngIf="usuario?.foto"src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class ="rounded" width="300" height="250">
+           <div class="col-sm-6 mt-5">
+             <img  *ngIf="usuario?.foto"src="http://localhost:8080/api/uploads/img/{{usuario.foto}}" alt="{{usuario.foto}}" class="img-thumbnail" >
            </div>
            <button (click) ="deleteFoto()" [disabled] ="!fotoselecionada" class="btn btn-danger mt-5" type="button" id="inputGroupFileAddon03">Eliminar</button>
          </div>
-       </div>
-    </div>
-  </div>
-</div>
-<div class ="card uploadForm text-white mt-5">
- <div class ="card-header">{{titulo_banner}}</div>
-   <div class="card-body">
-    <div class="container">
-      <div class="row">
-         <div class="col-sm">
-           <div class="input-group mb-3 bg-white mb-3">
-             <div class="input-group-prepend">
-               <button (click) ="subirBanner()" [disabled] ="!fotoselecionada" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Subir</button>
-             </div>
-             <div class="custom-file">
-               <input (change)="uploadBanner($event)" type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-               <label class="custom-file-label text-dark" for="inputGroupFile03">Choose file</label>
-             </div>
-           </div>
+         <div class="col-sm-6">
+           <div class="custom-file mb-3">
+             <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-success" type="button" id="inputGroupFileAddon03">Subir</button>
+              <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="customFile">
+              <label class="custom-file-label text-white" for="customFile">Choose file</label>
+            </div>
            <div class="progress" *ngIf="progreso > 0">
              <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso + '%'}" attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
                {{progreso}}%
              </div>
            </div>
-           <div class="col-sm mt-5 mb-3">
-             <img  *ngIf="usuario?.banner"src="http://localhost:8080/api/uploads/imgBanner/{{usuario.banner}}" alt="{{usuario.banner}}" class ="rounded" width="300" height="250">
+           <div class="col-sm-6 mt-5 mb-3">
+             <img  *ngIf="usuario?.banner"src="http://localhost:8080/api/uploads/imgBanner/{{usuario.banner}}" class="img-thumbnail" alt="{{usuario.banner}}" >
            </div>
            <button (click) ="profile(usuario)" class="btn btn-outline-secondary mr-3" type="button" >My profile</button>
            <button (click) ="deleteBanner()" [disabled] ="!fotoselecionada" class="btn btn-danger" type="button" id="inputGroupFileAddon03">Eliminar</button>
          </div>
        </div>
-    </div>
   </div>
 </div>
-</div>
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
 <app-footer></app-footer>

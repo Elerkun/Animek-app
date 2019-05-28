@@ -1,5 +1,7 @@
 <app-header></app-header>
-<section class="banner"><img [src]="data.attributes.coverImage.original" /></section>
+<section class="banner">
+  <img [src]="data.attributes.coverImage.original" />
+</section>
 <div class="card">
   <div class="card-body title">
      <div class="container">
@@ -45,14 +47,11 @@
             <div class="container mt-5">
               <div class="row">
                  <div class="col-sm">
-                   <div class="input-group mb-3 bg-white mb-3">
-                     <div class="input-group-prepend">
-                       <button (click) ="subirFoto(1)" [disabled] ="!fotoselecionada" class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Subir</button>
-                     </div>
-                     <div class="custom-file bg-dark">
-                       <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" />
-                     </div>
-                   </div>
+                   <div class="custom-file mb-3">
+                     <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-success" type="button" id="inputGroupFileAddon03">Subir</button>
+                      <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
                    <div class="progress" *ngIf="progreso > 0">
                      <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso + '%'}" attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
                        {{progreso}}%

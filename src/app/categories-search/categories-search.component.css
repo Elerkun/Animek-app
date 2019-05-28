@@ -101,6 +101,3 @@ transform:translatey(0);
 -webkit-transition-delay:.2s;
 transition-delay:.2s;
 }
-.modal-body > span{
-  cursor: pointer;
-}
