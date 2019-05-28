@@ -31,15 +31,45 @@ export class AnimePageComponent implements OnInit {
    progreso: number=0;
    comment: Comment = new Comment;
    anime_title: string ="";
+   episode;
+   public cont : number = 0;
+   habilitar: boolean = true;
+   showEpisode: boolean = false;
   constructor(private usuarioService: UsuarioService, private animeService: SearchService,  private animePageService: AnimePageService, private activatedRoute: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
 
     bodyPages();
     this.cargarAnime_Manga();
+    this.getAnimeEpisode();
 
 
   }
+  getAnimeEpisode(): void{
+    let id;
+    this.activatedRoute.params.subscribe(params =>{
+      id = params['id'];
+    });
+    if(id){
+    this.animePageService.getAnimeEpisodes(id,0).subscribe(asdasd => this.episode = asdasd['data'])
+   }
+  }
+ cargarAnimes(pageOffset):void{
+     let id;
+     this.activatedRoute.params.subscribe(params =>{
+       id = params['id'];
+      });
+      this.cont = this.cont + pageOffset;
+      this.animePageService.getAnimeEpisodes(id,this.cont).subscribe(animes =>this.episode = animes['data']);
+      }
+    descargarAnimes(pageOffset):void{
+      let id;
+      this.activatedRoute.params.subscribe(params =>{
+        id = params['id'];
+       });
+        this.cont = this.cont - pageOffset;
+        this.animePageService.getAnimeEpisodes(IDBCursor,this.cont).subscribe(animes =>this.episode = animes['data']);
+        }
   cargarAnime_Manga(): void{
       this.activatedRoute.params.subscribe(params =>{
         let id = params['id'];

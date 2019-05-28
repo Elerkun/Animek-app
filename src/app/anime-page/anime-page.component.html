@@ -15,8 +15,8 @@
           </div>
           <div class="col-sm-6">
               <ul class="ul_section">
-                  <li><a class="active" href="#home">Comments</a></li>
-                  <li><a href="#news">Episode</a></li>
+                  <li><a class="active" (click)="habilitar = true; showEpisode=false" > Comments</a></li>
+                  <li><a (click)="habilitar = false;showEpisode=true" > Episode</a></li>
               </ul>
           </div>
           <div class="col-sm-6 mt-4">
@@ -104,7 +104,7 @@
     </tr>
   </tbody>
 </table>
-<div class="container">
+<div class="container" *ngIf="habilitar==true">
   <div class="row">
     <div class="col-sm-6 mt-5 mb-5" *ngFor="let com of comment">
       <div class="card" style="width: 18rem;">
@@ -116,6 +116,26 @@
       </div>
       </div>
   </div>
+</div>
+<div class="container" *ngIf="showEpisode==true">
+  <div class="row">
+    <div class="col-sm-4 mt-5" *ngFor="let episode of episode">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top img-responsive"  [src]="episode.attributes.thumbnail.original" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{episode.attributes.canonicalTitle}}  </h5>
+          <p class="card-text ">{{episode.attributes.synopsis}}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <ul class="pagination mt-3">
+      <li  [ngClass]=" cont==0?'disabled page-item': 'page-item'">
+        <a class="page-link" (click)="descargarAnimes(10)"> &laquo;</a>
+      <li  [ngClass]=" cont==14386?'disabled page-item': 'page-item'">
+        <a class="page-link" (click)="cargarAnimes(10)"> &raquo;</a>
+     </li>
+    </ul>
 </div>
 
 

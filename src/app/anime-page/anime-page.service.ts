@@ -13,6 +13,8 @@ export class AnimePageService {
   private getAnimeFavorite: String = "http://localhost:8080/api/anime";
   private urlEnpoint: String = "http://localhost:8080/api/comentarios";
   private getCommentsAnime: String ="http://localhost:8080/api/comentarios"
+  private getAnimeEpisode: String = "https://kitsu.io/api/edge/anime";
+  private offset: string = "page[limit]=10&page[offset]=";
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'});
   anime: Anime = new Anime;
   mensaje: String;
@@ -22,7 +24,7 @@ export class AnimePageService {
   addAnime(anime: Anime,id): Observable<any> {
 
     return this.http.post(`${this.addAnimeFavorite}/${id}`,JSON.stringify(anime), {headers : this.HttpHeaders}).pipe(
-      map((response:any) => response.anime as Anime),
+      map((response:any) => response.anime as Anime[]),
       catchError(e => {
         if(e.status==400){//bad request
            return throwError(e);
@@ -58,6 +60,11 @@ export class AnimePageService {
        })
      );
     }
+    getAnimeEpisodes(anime_id,number): Observable<any> {
+       return this.http.get(`${this.getAnimeEpisode}/${anime_id}/episodes?${this.offset}${number}`).pipe(
+        map(response => response as Anime[]))
+      }
+
     updateFoto(anime_title,type,usuario_id,archivo:File,texto): Observable<HttpEvent<{}>>{
       let formData = new FormData();
       formData.append("archivo",archivo);
