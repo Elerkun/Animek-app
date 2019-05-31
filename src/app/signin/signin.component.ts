@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit {
       this.usuarioService.getUsuario_byNameAndPass(this.usuario.nombre,this.usuario.pass).subscribe((usuario)=> {
       this.usuario = usuario;
       this.router.navigate(['/uploadImage', this.usuario.id]);
-      swal.fire('Cliente Nuevo', ` El cliente ha sido creado con exito! `, 'success');
+      swal.fire('New User', ` New User create successfully! `, 'success');
       err => {
         this.errores = err.error.mensaje as string[];
          }

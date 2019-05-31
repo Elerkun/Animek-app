@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
       this.usuarioService.getUsuario_byNameAndPass(name,pass).subscribe((usuario)=> {
         this.usuario = usuario;
         this.router.navigate(['/myProfile', this.usuario.id]);
-        swal.fire('Inicio Sesion', ` Inicio de Sesion con exito! `, 'success');
+        swal.fire('Log in', ` Log in Successfull! `, 'success');
         err => {
           this.errores = err.error.mensaje as string[];
           }

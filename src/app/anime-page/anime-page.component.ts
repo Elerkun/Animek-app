@@ -156,7 +156,7 @@ export class AnimePageComponent implements OnInit {
   this.progreso= 0;
   console.log(this.fotoselecionada);
   if(this.fotoselecionada.type.indexOf('image')<0){
-    swal.fire('Error', 'El archivo debe ser una imagen','error');
+    swal.fire('Error', 'the image must be a picture','error');
          this.fotoselecionada = null;
 
     }
@@ -177,7 +177,7 @@ export class AnimePageComponent implements OnInit {
            }else if(event.type === HttpEventType.Response){
              let response: any = event.body;
              this.comment = response.comment as Comment;
-             swal.fire('La foto se ha borrado correctamente!', response.mensaje,'success');
+             swal.fire('the picture was delete successfully!', response.mensaje,'success');
             }
           });
 

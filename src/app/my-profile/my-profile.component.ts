@@ -17,12 +17,24 @@ export class MyProfileComponent implements OnInit {
   private usuario: Usuario = new Usuario();
   private errores : string[];
   comment;
+  anime;
+  habilitar: boolean = true;
+  showEpisode: boolean = false;
   constructor(private usuarioService: UsuarioService,private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     bodyPages();
     this.cargarCliente_byId();
     this.getAllComments();
+    this.getAllAnimesById();
+  }
+  public getAllAnimesById():void{
+    this.activatedRoute.params.subscribe(params => {
+      let id= params['userId'];
+      if(id){
+        this.usuarioService.getAnimes(id).subscribe((anime)=> this.anime= anime)
+      }
+    })
   }
   public cargarCliente_byId(): void{
   this.activatedRoute.params.subscribe(params => {

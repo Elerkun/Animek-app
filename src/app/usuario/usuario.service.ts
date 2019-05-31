@@ -14,10 +14,17 @@ import {Router} from '@angular/router';
 export class UsuarioService {
   private urlEnpoint: string ="http://localhost:8080/api/usuarios"
   private getAllComments: string ="http://localhost:8080/api/comentarios"
+  private getAllAnimeById: string ="http://localhost:8080/api/animes"
   private HttpHeaders = new HttpHeaders ({'Content-Type': 'application/json'})
   anime: Anime;
   comment: Comment
   constructor(private http: HttpClient,private router: Router) { }
+  getAnimes(id): Observable<Anime[]> {
+      return this.http.get(`${this.getAllAnimeById}/${id}`).pipe(map(
+      response => response as Anime[]
+    ));
+  }
+
 
   create(usuario:Usuario): Observable<Usuario> {
   return this.http.post(this.urlEnpoint,usuario, {headers : this.HttpHeaders}).pipe(

@@ -37,13 +37,13 @@ export class UploadImagesComponent implements OnInit {
   this.progreso= 0;
   console.log(this.fotoselecionada);
   if(this.fotoselecionada.type.indexOf('image')<0){
-    swal.fire('Error', 'El archivo debe ser una imagen','error');
+    swal.fire('Error', 'the file must be a image','error');
          this.fotoselecionada = null;
     }
   }
   subirFoto(){
   if(!this.fotoselecionada){
-    swal.fire('Error', 'Seleccione una foto','error');
+    swal.fire('Error', 'select a picture','error');
   }else{
     this.activatedRoute.params.subscribe(params => {
       let id= params['id'];
@@ -54,7 +54,7 @@ export class UploadImagesComponent implements OnInit {
           }else if(event.type === HttpEventType.Response){
             let response: any = event.body;
             this.usuario = response.cliente as Usuario;
-            swal.fire('La foto se ha subido correctamente!', response.mensaje,'success');
+            swal.fire('the picture was upload successfully!', response.mensaje,'success');
            }
          });
        });
@@ -70,7 +70,7 @@ export class UploadImagesComponent implements OnInit {
            }else if(event.type === HttpEventType.Response){
              let response: any = event.body;
              this.usuario = response.cliente as Usuario;
-             swal.fire('La foto se ha borrado correctamente!', response.mensaje,'success');
+             swal.fire('the picture was delete successfully!', response.mensaje,'success');
             }
           });
         });
@@ -80,13 +80,13 @@ export class UploadImagesComponent implements OnInit {
    this.progreso= 0;
    console.log(this.fotoselecionada);
    if(this.fotoselecionada.type.indexOf('image')<0){
-     swal.fire('Error', 'El archivo debe ser una imagen','error');
+     swal.fire('Error', 'the file must be a image','error');
           this.fotoselecionada = null;
      }
    }
    subirBanner(){
    if(!this.fotoselecionada){
-     swal.fire('Error', 'Seleccione una foto','error');
+     swal.fire('Error', 'select a picture','error');
    }else{
      this.activatedRoute.params.subscribe(params => {
        let id= params['id'];
@@ -97,7 +97,7 @@ export class UploadImagesComponent implements OnInit {
            }else if(event.type === HttpEventType.Response){
              let response: any = event.body;
              this.usuario = response.cliente as Usuario;
-             swal.fire('La foto se ha subido correctamente!', response.mensaje,'success');
+             swal.fire('the picture was upload successfully!', response.mensaje,'success');
             }
           });
         });
@@ -113,7 +113,7 @@ export class UploadImagesComponent implements OnInit {
             }else if(event.type === HttpEventType.Response){
               let response: any = event.body;
               this.usuario = response.cliente as Usuario;
-              swal.fire('La foto se ha borrado correctamente!', response.mensaje,'success');
+              swal.fire('the picture was delete successfully!', response.mensaje,'success');
              }
            });
          });

@@ -22,8 +22,8 @@
 
           <div class="col-sm-6 col-xs-12">
                 <ul class="list-inline ul_section">
-                    <li class="list-inline-item"><a class="active" href="#home">Comments</a></li>
-                    <li class="list-inline-item"><a href="#contact">Favorites Animes</a></li>
+                    <li class="list-inline-item"><a class="active" (click)="habilitar = true; showEpisode=false">Comments</a></li>
+                    <li class="list-inline-item"><a (click)="habilitar = false;showEpisode=true" >Favorites Animes</a></li>
                 </ul>
           </div>
         </div>
@@ -31,7 +31,7 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="habilitar==true">
   <div class="row">
     <div class="col-sm-6 mt-5 mb-5" *ngFor="let com of comment">
       <div class="card" style="width: 18rem;">
@@ -39,6 +39,19 @@
         <div class="card-body">
           <h5 class="card-title">{{com.anime_name}}  </h5>
           <p class="card-text ">{{com.texto}}</p>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+<div class="container"  *ngIf="showEpisode==true">
+  <div class="row">
+    <div class="col-sm-6 mt-5 mb-5" *ngFor="let anime of anime">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top img-responsive" [src]="anime.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{anime.title}}  </h5>
+          <p class="card-text ">{{anime.description}}</p>
         </div>
       </div>
       </div>

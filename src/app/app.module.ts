@@ -17,6 +17,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import{FormsModule} from '@angular/forms';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { CategoriesSearchComponent } from './categories-search/categories-search.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'myProfile/:userId', component:MyProfileComponent},
   {path:'animesmangasSearch', component:AnimesSearchComponent},
   {path:'uploadImage/:id', component:UploadImagesComponent},
-  {path: 'categoriesSearch/:categories/:userId', component:CategoriesSearchComponent}
+  {path: 'categoriesSearch/:categories/:userId', component:CategoriesSearchComponent},
+  {path: 'chat', component:ChatComponent}
 ]
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ const routes: Routes = [
     UsuarioComponent,
     UploadImagesComponent,
     CategoriesSearchComponent,
+    ChatComponent,
 
 
   ],

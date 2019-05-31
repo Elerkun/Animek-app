@@ -15,7 +15,7 @@
     <a class="page-link" (click)="cargarAnimes(10)"> &raquo;</a>
  </li>
 </ul>
-<h1>All Anime</h1>
+<h1>All Manga</h1>
 <div class="card-group mb-5 ml-1 mr-2 p-2" >
 <div class=" card hovereffect" *ngFor="let manga of manga" [routerLink]="['/animemanga-page/' , manga.type,manga.id, this.usuario.id]" >
 <img [src]="manga.attributes.posterImage.tiny" class="card-img-top img-responsive  " />

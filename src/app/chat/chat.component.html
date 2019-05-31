@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="div">
+<div class="card d-flex justify-content-center mx-4 mt-4 chat " style="background: rgb(0, 0, 0,.8);color: rgb(127, 143, 173);">
+   <h1> Enjoy with the community</h1>
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item mr-2">
+          <input type="text" [(ngModel)]="mensaje.username" class="form-control" *ngIf="!conectado" placeholder="Tu username...." name="texto">
+        </li>
+         <li class="nav-item mr-2">
+           <button type="button" class="btn btn-success" (click)="conectar()" *ngIf="!conectado" [disabled] ="!mensaje.username">Conectar</button>
+         </li>
+         <li class="nav-item">
+           <button type="button" class="btn btn-warning" (click)="desconectar()" *ngIf="conectado"> Cerrar Chat</button>
+           </li>
+      </ul>
+    </div>
+    <div #scrollChat  [scrollTop]="scrollChat.scrollHeight" class="card-body" style="overflow-y:scroll; height: 360px;" *ngIf="conectado">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item list-group-item-light" style="background: none;" *ngFor="let mensaje of mensajes">
+          <span *ngIf="mensaje.tipo=='Nuevo_usuario'">{{mensaje.fecha| date: 'shortTime'}} {{mensaje.texto}} <span [ngStyle]="{'color': mensaje.color}">@{{mensaje.username}}</span></span>
+          <span *ngIf="mensaje.tipo=='Mensaje'">{{mensaje.fecha| date: 'shortTime'}}  <span [ngStyle]="{'color': mensaje.color}">@{{mensaje.username}}</span> dice: <br> {{mensaje.texto}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer" *ngIf="conectado">
+     <form  class="form-inline">
+       <div class="form-group mx-3">
+         <input type="text" [(ngModel)]="mensaje.texto" class="form-control" placeholder="Escribe un mensaje" name="texto" (keyup)="escribiendo()">
+       </div>
+       <button type="button" (click)="enviarMensaje()" class="btn btn-primary">Enviar</button>
+     </form>
+     <div style="color: rgb(127, 143, 173);">{{escribiendo_texto}}</div>
+    </div>
+  </div>
+</div>
