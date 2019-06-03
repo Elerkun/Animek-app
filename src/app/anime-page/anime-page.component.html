@@ -48,7 +48,7 @@
               <div class="row">
                  <div class="col-sm">
                    <div class="custom-file mb-3">
-                     <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-success" type="button" id="inputGroupFileAddon03">Subir</button>
+                     <button (click) ="subirFoto()" [disabled] ="!fotoselecionada" class="btn btn-success" type="button" id="inputGroupFileAddon03" name="MAX_FILE_SIZE" value="4194304">Subir</button>
                       <input (change)="uploadFoto($event)" type="file" class="custom-file-input" id="customFile">
                       <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
