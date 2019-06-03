@@ -68,7 +68,7 @@ export class AnimePageComponent implements OnInit {
         id = params['id'];
        });
         this.cont = this.cont - pageOffset;
-        this.animePageService.getAnimeEpisodes(IDBCursor,this.cont).subscribe(animes =>this.episode = animes['data']);
+        this.animePageService.getAnimeEpisodes(id,this.cont).subscribe(animes =>this.episode = animes['data']);
         }
   cargarAnime_Manga(): void{
       this.activatedRoute.params.subscribe(params =>{
