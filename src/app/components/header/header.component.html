@@ -1,70 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon text-light"></span>
-  </button>
-<div class="collapse navbar-collapse " id="navbarTogglerDemo02">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
-      <li class="nav-item active">
-        <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white"  routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/signin">Sign in</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/chat">Chat</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search"   #text placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit" data-toggle="modal" data-target="#myModalnavBar" (click)="searchAnime(text.value);searchManga(text.value)">Search</button>
-      <!-- The Modal Anime -->
-      <div class="modal" id="myModalnavBar">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Animes & Mangas</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body" *ngFor="let animes of animes" >
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" [src]="animes.attributes.posterImage.small" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{animes.attributes.slug}}</h5>
-                  <button [routerLink]="['/animemanga-page/' , animes.type,animes.id, usuario.id]" class="btn btn-primary" data-dismiss="modal">Go </button>
-                </div>
-              </div>
-            </div>
-            <div class="modal-body" *ngFor="let mangas of mangas" >
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top" [src]="mangas.attributes.posterImage.small" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{mangas.attributes.slug}}</h5>
-                  <button [routerLink]="['/animemanga-page/' , mangas.type,mangas.id, usuario.id]"  class="btn btn-primary" data-dismiss="modal">Go</button>
-                </div>
-              </div>
-            </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <ul class="pagination mt-3" >
-                <li  [ngClass]=" cont==0?'disabled page-item': 'page-item'">
-                  <a class="page-link" (click)="descargarMangas(text.value,10);descargarAnimes(text.value,10)"> &laquo;</a>
-                <li  [ngClass]=" cont==207?'disabled page-item': 'page-item'">
-                  <a class="page-link" (click)="cargarAnimes(text.value,10);cargarMangas(text.value,10)"> &raquo;</a>
-               </li>
-              </ul>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </form>
+<nav class="navbar navbar-expand-md navbar-dark">
+  <div class="mx-auto mt-5">
+    <div class="card mb-0  mx-auto d-block ak_card-logo" style="max-width: 80px;">
+      <img src="assets/images/logo.jpg" class="img-fluid" >
   </div>
+  </div>
+  <div class="mx-auto order-0">
+    <ul class="navbar-nav ml-auto mr-auto">
+        <li class="nav-item text-animek">
+            <a class="nav-link" href="#">Browse</a>
+        </li>
+        <li class="nav-item text-animek">
+            <a class="nav-link" href="#">Social</a>
+        </li>
+        <li class="nav-item text-animek">
+          <a class="nav-link" href="#">Forum</a>
+      </li>
+        <div class="mx-auto">
+          <button type="button" class="btn  mr-1 rounded-pill btn-animek text-animek">Login</button>
+          <button type="button" class="btn mr-1 rounded-pill btn-animek text-animek">Sign Up</button>
+      </div>
+    </ul>
+    
+</div>
 </nav>

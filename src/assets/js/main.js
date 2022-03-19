@@ -1,5 +1,5 @@
 function bodyIndex(){
-  $("body").css({"background":"#081016"});
+  $("body").css({"background":"#5C728A"});
 }
 function bodyPages(){
   $("body").css({"background-color":" #d3d5d2 ","background-size": "cover", "background-position": "center"});

@@ -1,26 +1,4 @@
 <app-header></app-header>
 <div class="ak_div-principal">
-  <div class="card mb-0  mx-auto d-block ak_card-logo" style="max-width: 18rem;">
-      <img src="assets/images/animek-1.gif" class="img-fluid" >
-  </div>
-<div class="card text-white mx-auto mt-5 mb-5 text-center ak_card-homeText" style="max-width: 18rem; background: none">
-  <div class="card-body">
-    <h5 class="card-title ak_text">Discover Animes and mangas </h5>
-    <p class="card-text ak_text">Share with your friends </p>
-  </div>
-  </div>
-</div>
-  <blockquote class="blockquote text-center text-white">
-  <p class="mb-0">Last Anime Commented.</p>
-  </blockquote>
-<div class="card-group mb-5 ml-1 mr-1"  >
-  <div class="card " *ngFor="let anime of data"  >
-    <img [src]="anime.attributes.posterImage.large" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{anime.attributes.canonicalTitle}}</h5>
-      <p class="card-text"></p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-    </div>
-  </div>
-</div>
+
 <app-footer></app-footer>
