@@ -7,32 +7,26 @@ nav .logo> img {
 
   background-color: #5C728A;
 }
-.ak_text{
-  position: relative;
-  letter-spacing: 4px;
-  font-size: 2em;
-  color: #edf1f5;
-  overflow: hidden;
-  background: linear-gradient(90deg, #000, #000, #000);
-  background-repeat: no-repeat;
-  background-size: 80%;
-  animation: animate 3s linear infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
 }
-@keyframes animate {
-  0% {
-    background-position: -500%;
-  }
-  100% {
-    background-position: 500%;
-  }
+
+.carousel-inner .carousel-item-right.active,
+.carousel-inner .carousel-item-next {
+  transform: translateX(25%);
 }
-.ak_card-logo{
-  background-color: rgba(0, 0, 0, 0);
-  border : none;
+
+.carousel-inner .carousel-item-left.active, 
+.carousel-inner .carousel-item-prev {
+  transform: translateX(-25%);
 }
-.ak_card-homeText{
-  background-color: rgba(0, 0, 0, 0);
-  border : none;
+  
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+  
 }
+
