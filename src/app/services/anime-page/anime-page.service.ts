@@ -3,7 +3,7 @@ import {/*of,*/Observable,throwError} from 'rxjs'; //IMPORTANT: Es la clase que 
 import {map, catchError,tap} from 'rxjs/operators';
 import {HttpClient,HttpHeaders, HttpRequest,HttpEvent,HttpParams} from '@angular/common/http'; //IMPORTANT: Crea la conexion Http para que la creacion de clientes sea dinámica
 import swal from 'sweetalert2';
-import { Anime } from 'src/app/models/anime';
+import { Anime } from 'src/app/model/anime';
 
 @Injectable({
   providedIn: 'root'

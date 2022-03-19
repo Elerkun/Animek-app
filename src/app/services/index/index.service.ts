@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {/*of,*/Observable} from 'rxjs'; //IMPORTANT: Es la clase que permite transformar todas los flujos de datos para que se puedan manejar
 import {map} from 'rxjs/operators'
 import {HttpClient} from '@angular/common/http' //IMPORTANT: Crea la conexion Http para que la creacion de clientes sea dinámica
-import { Anime } from 'src/app/models/anime';
+import { Anime } from 'src/app/model/anime';
 @Injectable({
   providedIn: 'root'
 })

@@ -1,4 +1,4 @@
-import { Anime } from "src/app/models/anime";
+import { Anime } from "src/app/model/anime";
 
 export class Usuario {
   id: number;

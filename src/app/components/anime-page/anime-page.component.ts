@@ -2,7 +2,7 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Anime } from 'src/app/models/anime';
+import { Anime } from 'src/app/model/anime';
 import { AnimePageService } from 'src/app/services/anime-page/anime-page.service';
 import { SearchService } from 'src/app/services/search/search.service';
 import { Usuario } from 'src/app/services/usuario/usuario';

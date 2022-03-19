@@ -1,4 +1,4 @@
-import { Anime } from "src/app/models/anime";
+import { Anime } from "src/app/model/anime";
 import { Usuario } from "src/app/services/usuario/usuario";
 
 export class Comment{

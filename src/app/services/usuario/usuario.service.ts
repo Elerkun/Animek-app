@@ -6,7 +6,7 @@ import{Usuario} from './usuario';
 import{Comment} from '../../components/usuario/comment';
 import swal from 'sweetalert2';
 import {Router} from '@angular/router';
-import { Anime } from 'src/app/models/anime';
+import { Anime } from 'src/app/model/anime';
 
 @Injectable({
   providedIn: 'root'
