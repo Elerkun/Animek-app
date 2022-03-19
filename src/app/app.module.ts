@@ -1,23 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import {RouterModule, Routes} from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { SigninComponent } from './signin/signin.component';
-import { AnimePageComponent } from './anime-page/anime-page.component';
-import {HttpClientModule} from '@angular/common/http';
-import { SearchComponent } from './search/search.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { AnimesSearchComponent } from './animes-search/animes-search.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import{FormsModule} from '@angular/forms';
-import { UploadImagesComponent } from './upload-images/upload-images.component';
-import { CategoriesSearchComponent } from './categories-search/categories-search.component';
-import { ChatComponent } from './chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { AnimePageComponent } from './components/anime-page/anime-page.component';
+import { AnimesSearchComponent } from './components/animes-search/animes-search.component';
+import { CategoriesSearchComponent } from './components/categories-search/categories-search.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { IndexComponent } from './components/index/index.component';
+import { LoginComponent } from './components/login/login.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { SearchComponent } from './components/search/search.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { UploadImagesComponent } from './components/upload-images/upload-images.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
