@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoriesSearchService } from 'src/app/services/categories-search/categories-search.service';
-import { Usuario } from 'src/app/services/usuario/usuario';
+import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 @Component({
   selector: 'app-categories-search',

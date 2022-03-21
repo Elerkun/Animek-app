@@ -5,7 +5,7 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Anime } from 'src/app/model/anime';
 import { AnimePageService } from 'src/app/services/anime-page/anime-page.service';
 import { SearchService } from 'src/app/services/search/search.service';
-import { Usuario } from 'src/app/services/usuario/usuario';
+import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import swal from 'sweetalert2';
 declare function bodyPages() : any;

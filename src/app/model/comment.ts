@@ -1,5 +1,5 @@
 import { Anime } from "src/app/model/anime";
-import { Usuario } from "src/app/services/usuario/usuario";
+import { Usuario } from "src/app/model/usuario";
 
 export class Comment{
    id:number;
