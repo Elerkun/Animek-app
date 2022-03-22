@@ -21,6 +21,7 @@ export class IndexComponent implements OnInit {
      slider();
      this.animeService.getAnimes().subscribe(animes => this.data = animes['data']);
 
+
   }
 
 }
