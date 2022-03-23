@@ -15,7 +15,7 @@ export class IndexService {
   displayItems;
 
 getAnimes(): Observable<Anime[]> {
-      return this.http.get(this.urlEndPoint).pipe(map(
+      return this.http.get(`${this.urlEndPoint}/${'?limt=4'}`).pipe(map(
       response => response as Anime[]
     ));
   }
