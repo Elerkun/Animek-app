@@ -20,8 +20,7 @@ function delFav() {
   $('.addFav').prop('disabled', false)
   $('.addFav').css({ cursor: 'ponteir' })
 }
-function slider(anime) {
-  if (anime) {
+function slider() {
     $('#recipeCarousel').carousel({
       interval: 2000
     })
@@ -43,4 +42,4 @@ function slider(anime) {
       }
     })
   }
-}
+

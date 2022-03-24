@@ -29,4 +29,6 @@ nav .logo> img {
   transform: translateX(0);
   
 }
-
+.text-back{
+  background-color: rgba(255,255,255,0.4);
+  }
