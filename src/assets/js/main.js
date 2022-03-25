@@ -23,7 +23,10 @@ function delFav() {
 function slider() {
     $('#recipeCarousel').carousel({
       interval: 2000
-    })
+    });
+    $('#carouselExampleControlsEmision').carousel({
+      interval: 2000
+    });
 
     $('.carousel .carousel-item').each(function () {
       var next = $(this).next()

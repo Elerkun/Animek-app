@@ -10,14 +10,20 @@ import { Anime } from 'src/app/model/anime';
 export class IndexService {
 
   private urlEndPoint: string ='https://kitsu.io/api/edge/trending/anime'
+  private urlEndPointEmision: string ='https://kitsu.io/api/edge/anime?filter[status]=current&page[limit]='
   constructor(private http: HttpClient) { }
   data;
   displayItems;
 
-getAnimes(): Observable<Anime[]> {
-      return this.http.get(`${this.urlEndPoint}/${'?limt=4'}`).pipe(map(
+getPopularAnimesWeek(): Observable<Anime[]> {
+      return this.http.get(`${this.urlEndPoint}/${'?limt=5'}`).pipe(map(
       response => response as Anime[]
     ));
   }
-
+  
+getPopularAnimesOnEmision(): Observable<Anime[]> {
+      return this.http.get(`${this.urlEndPointEmision}${'5&sort=-user_count'}`).pipe(map(
+      response => response as Anime[]
+    ));
   }
+}

@@ -9,12 +9,14 @@ declare function slider(): any
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  animes: Anime[]
-  data
+  public animes: Anime[]
+  public animeWeek = [] ;
+  public animeEmision = [];
   constructor(private animeService: IndexService) {}
   ngOnInit() {
     bodyIndex();
     slider();
-    this.animeService.getAnimes().subscribe(animes => this.data = animes['data']);
+    this.animeService.getPopularAnimesWeek().subscribe(animes => this.animeWeek = animes['data']);
+    this.animeService.getPopularAnimesOnEmision().subscribe(animesEmision => this.animeEmision = animesEmision['data'])
   }
 }
