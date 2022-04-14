@@ -49,5 +49,29 @@
 </div>
 </div>
 
+<div class="container text-start my-5" >
+  <h2 class="text-animek ml-3">Upcoming Anime</h2>
+  <div class="row mx-auto my-auto" >
+<div id="carouselExampleControlsUpcoming" data-interval="false" class="carousel slide mt-5 ml-5 mr-5 mb-5" data-ride="carouselEmision">
+  <div class="carousel-inner">
+    <div class="carousel-item" style="height: 18rem;" *ngFor="let anime of animeUpcoming let i = index"
+      [ngClass]="{'active': i == 0 }">
+      <img [src]="anime.attributes.coverImage ? anime.attributes.coverImage?.large : 'assets/images/notFound.png'" class="w-100">
+      <div class="carousel-caption d-none d-md-block p-3 mb-2 text-back">
+          <h5 class="text-dark">{{anime.attributes.canonicalTitle}}</h5>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControlsUpcoming" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControlsUpcoming" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</div>
+</div>
 
 <app-footer></app-footer>

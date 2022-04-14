@@ -12,11 +12,13 @@ export class IndexComponent implements OnInit {
   public animes: Anime[]
   public animeWeek = [] ;
   public animeEmision = [];
+  public animeUpcoming = [];
   constructor(private animeService: IndexService) {}
   ngOnInit() {
     bodyIndex();
     slider();
     this.animeService.getPopularAnimesWeek().subscribe(animes => this.animeWeek = animes['data']);
-    this.animeService.getPopularAnimesOnEmision().subscribe(animesEmision => this.animeEmision = animesEmision['data'])
+    this.animeService.getPopularAnimesOnEmision().subscribe(animesEmision => this.animeEmision = animesEmision['data']);
+    this.animeService.getUpcomingAnimes().subscribe(animeUpcoming => this.animeUpcoming = animeUpcoming['data']);
   }
 }
